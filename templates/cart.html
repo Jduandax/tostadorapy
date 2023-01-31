@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
 
-    <title>ShopCart</title>
+    <title>Carro De Compras</title>
 
     <style type="text/css">
         body {
@@ -31,7 +31,6 @@
             height: border-box;
             object-fit: cover;
             transition: transform .2s;
-
         }
 
         .card-img-top {
@@ -53,108 +52,82 @@
     </script>
 </head>
 <body>
-<div class="container px-3 my-5 clearfix">
-    <!-- Shopping cart table -->
-    <div class="card">
-        <div class="card-header">
-            <h2>Carro de Compras</h2>
+{% if messages %}
+        <div class="alert alert-success">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <h:form>
-                    <table class="table table-bordered m-0">
-                        <thead>
-                        <tr>
-                            <th
-                                    class="text-center py-3 px-4"
-                                    style="min-width: 400px;">Nombre Del Producto &amp; Detalles
-                            </th>
-                            <th class="text-right py-3 px-4" style="width: 100px;">Precio</th>
-                            <th class="text-center py-3 px-4" style="width: 120px;">Cantidad</th>
-                            <th class="text-right py-3 px-4" style="width: 100px;">Subtotal</th>
-                            <th class="text-center align-middle" style="width: 40px;"><i class="fa fa-trash"></i>
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <c:forEach items="#{carrito.leerTodos()}" var="car">
-                            <tr>
-                                <td class="image">
-                                    <div class="media-align-items-center">
-                                        <h:graphicImage value="#{car.productId.image}"
-                                                        style="width: 120px; height: 120px; object-fit: cover;
-                                                                    transition: transform .2s"
-                                                        alt="Image"
-                                                        title="Image"
-                                                        styleClass="card-img-top"
-                                        />
-                                        <div class="media-body">
-                                            <br/>
-                                            <h6 class="media-title font-weight-semibold">
-                                                <a href="#">#{car.productId.nameProduct}</a>
-                                            </h6>
-                                            <p class="font-size-sm text-muted mb-0">Descripcion:
-                                                #{car.productId.description}</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="precio">$#{car.productId.price}</td>
-                                <td class="text-center py-3 px-4">
-                                    <div class="cantidad">
-                                    </div>
-                                    <div class="spbtn">
-                                        <p:spinner id="spinner" value="#{carrito.cantidadProductos(
-                                                                                     carrito.usuario, car.productId)}"/>
-
-                                    </div>
-                                </td>
-                                <td class="text-right py-3 px-4">$#{carrito.getSubtotal(car)}</td>
-                                <td>
-                                    <h:form>
-                                        <h:commandButton class="btn btn-outline-danger" value="Eliminar"
-                                                         action="#{carrito.eliminar(car, carrito.usuario)}"/>
-
-                                    </h:form>
-                                </td>
-                            </tr>
-
-                        </c:forEach>
-                        </tbody>
-                    </table>
-
-
-                </h:form>
-            </div>
-            <div class="text-right mt-4 ">
-                <label class="text-muted font-weight-normal m-0">Precio Total</label>
-                <div class="precio-total"><strong>$#{carrito.total()}</strong></div>
+    {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Carro De Compras</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="{% url 'list_product' %}" class="btn btn-primary btn-sm float-right">Volver</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th width="40%">Producto</th>
+                                        <th width="10%">Imagen</th>
+                                        <th width="13%">Precio</th>
+                                        <th width="10%">Cantidad</th>
+                                        <th width="20%">Subtotal</th>
+                                        <th width="7%">Accion</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for c in carts %}
+                                        <tr>
+                                            <td>{{ c.product.name }}</td>
+                                            <td><img src="{{ c.product.picture }}" width="80" height="80"></td>
+                                            <td>{{ c.product.price }}</td>
+                                            <td>{{ c.quantity }}</td>
+                                            <td>COP. {{ c.sub_total }}</td>
+                                            <td><a href="{% url 'delete_product_cart' %}" class="btn btn-danger btn-sm">Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3>Detalles De La Compra</h3>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-4">
+                            <p>Subtotal: COP. {{ order.total }}</p>
+                            <h3>Total: COP. {{ order.total }}</h3>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-4">
+                            <a href="#" class="btn btn-success">Comprar</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="text-right mt-4 ">
-
-        <h:form>
-
-            <div class="col-sm">
-                <a class="btn btn-primary  " value="Seguir Comprando"
-                   href="{% url 'catalogo' %}">Continuar Comprando</a>
-                <td></td>
-
-
-                <h:commandButton action="{% url 'catalogo' %}"
-                                 value="Pagar"
-                                 class="btn btn-danger mb-2">
-                </h:commandButton>
-
-
-            </div>
-
-        </h:form>
-    </div>
-
 </div>
-
 </body>
+
 </html>

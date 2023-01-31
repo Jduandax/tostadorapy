@@ -5,18 +5,16 @@ from rest_framework import status
 from .serializer import CartSerializer
 from .models import Cart
 from apps.product.views import ListProduct
+from apps.user.views import Clientlogeado
 
 
 class CartDetail(APIView):
-    def get(self, request, pk):
-        try:
-
-            cart = Cart.objects.filter(id = pk)
-            print(cart)
-            cart = CartSerializer(cart, many=True).data
-            return Response({ "cart": cart}, status=status.HTTP_200_OK)
-        except:
-            return Response("No found")
+    def get(self, request):
+        user = Clientlogeado.get(self, request)
+        user_id = (user.data['id'])
+        cart = Cart.objects.filter(user_id=user_id)
+        cart = CartSerializer(cart, many=True).data
+        return render(request, 'cart.html', {'cart': cart})
 
 
 class CartUpdate(APIView):

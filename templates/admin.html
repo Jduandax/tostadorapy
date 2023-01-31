@@ -17,6 +17,13 @@
         <div class="loader-fill"></div>
     </div>
 </div>
+{% if messages %}
+    <div class="alert alert-success">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
 
 <header xmlns="http://www.w3.org/1999/xhtml" class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
 
@@ -81,57 +88,9 @@
                             <li class="n-title">
                                 <p class="m-b-0">NEW</p>
                             </li>
-{#                            <li class="notification">#}
-{#                                <div class="media">#}
-{#                                    <img class="img-radius" src="{% static '/assetsAdmin/images/user/avatar-1.jpg' %}"#}
-{#                                         alt="Generic placeholder image"/>#}
-{#                                    <div class="media-body">#}
-{#                                        <p><strong>John Doe</strong><span class="n-time text-muted"><i#}
-{#                                                class="icon feather icon-clock m-r-10"></i>5 min</span></p>#}
-{#                                        <p>New ticket Added</p>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </li>#}
-{#                            <li class="n-title">#}
-{#                                <p class="m-b-0">EARLIER</p>#}
-{#                            </li>#}
-{#                            <li class="notification">#}
-{#                                <div class="media">#}
-{#                                    <img class="img-radius" src="{% static '/assetsAdmin/images/user/avatar-1.jpg' %}"#}
-{#                                         alt="Generic placeholder image"/>#}
-{#                                    <div class="media-body">#}
-{#                                        <p><strong>Joseph William</strong><span class="n-time text-muted"><i#}
-{#                                                class="icon feather icon-clock m-r-10"></i>10 min</span></p>#}
-{#                                        <p>Prchace New Theme and make payment</p>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </li>#}
-{#                            <li class="notification">#}
-{#                                <div class="media">#}
-{#                                    <img class="img-radius" src="../assets/assetsAdmin/images/user/avatar-1.jpg"#}
-{#                                         alt="Generic placeholder image"/>#}
-{#                                    <div class="media-body">#}
-{#                                        <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i#}
-{#                                                class="icon feather icon-clock m-r-10"></i>12 min</span></p>#}
-{#                                        <p>currently login</p>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </li>#}
-{#                            <li class="notification">#}
-{#                                <div class="media">#}
-{#                                    <img class="img-radius" src="{% static '/assetsAdmin/images/user/avatar-2.jpg' %}"#}
-{#                                         alt="Generic placeholder image"/>#}
-{#                                    <div class="media-body">#}
-{#                                        <p><strong>Joseph William</strong><span class="n-time text-muted"><i#}
-{#                                                class="icon feather icon-clock m-r-10"></i>30 min</span></p>#}
-{#                                        <p>Prchace New Theme and make payment</p>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </li>#}
-{#                        </ul>#}
-                        <div class="noti-footer">
-                            <a href="#!">show all</a>
-                        </div>
+                            <div class="noti-footer">
+                                <a href="#!">show all</a>
+                            </div>
                     </div>
                 </div>
             </li>
@@ -149,14 +108,6 @@
                                 <i class="feather icon-log-out"></i>
                             </a>
                         </div>
-{#                        <ul class="pro-body">#}
-{#                            <li><a href="../../usuario/cliente.xhtml" class="dropdown-item"><i#}
-{#                                    class="feather icon-user"></i> Perfil</a></li>#}
-{#                            <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> Mis#}
-{#                                Mensajes</a></li>#}
-{#                            <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i>#}
-{#                                Seguridad y Privacidad</a></li>#}
-{#                        </ul>#}
                     </div>
                 </div>
             </li>

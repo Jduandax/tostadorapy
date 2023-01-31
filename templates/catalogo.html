@@ -89,6 +89,13 @@
     </div>
 </div>
 <!--PreLoader Ends-->
+{% if messages %}
+    <div class="alert alert-success">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
 
 
 <!-- header -->
@@ -100,7 +107,7 @@
                     <!-- logo -->
                     <div class="site-logo">
                         <a href="index.html">
-                            <img src="assets/img/logo.png" alt="">
+                            <img src="{% static 'img/logo.png' %}" alt="">
                         </a>
                     </div>
                     <!-- logo -->
@@ -112,7 +119,8 @@
                             <li><a href="{% url 'conocenos' %}">Conócenos</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                    <a class="shopping-cart" href="{% url 'product_cart' %}"><i
+                                            class="fas fa-shopping-cart"></i></a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                 </div>
                             </li>
@@ -194,7 +202,7 @@
             <div class="col-lg-4">
                 <div class="single-product-item">
                     <div class="product-imag">
-                        <h3> {{ product.name }}</h3>
+                        <h2> {{ product.name }}</h2>
                     </div>
                     <div class="product-imag">
                         <img src="{{ product.picture }}" alt="Product Image">
@@ -203,7 +211,7 @@
                         <h4><span>COP.  </span>{{ product.price |floatformat:2 }}</h4>
                     </div>
                     <div class="product-text">
-                        <p>{{ product.presentation }}</p>
+                        <h6>{{ product.presentation }}</h6>
                     </div>
 
                     <div class="product-action">
