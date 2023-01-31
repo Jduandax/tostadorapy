@@ -21,7 +21,7 @@ class Register(APIView):
             user.save()
             user = User.objects.get(email=request.data['email'])
             set_rol(user)
-            # send_email(user)
+            send_email(user)
             request.session['email'] = user.email
             messages.add_message(request, messages.SUCCESS, 'Usuario registrado correctamente')
             return redirect('list_product')
