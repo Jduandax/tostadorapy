@@ -22,12 +22,13 @@ class Register(APIView):
             user.save()
             user = User.objects.get(email=request.data['email'])
             set_rol(user)
-            send_email(user)
+            # send_email(user)
             request.session['email'] = user.email
             messages.add_message(request, messages.SUCCESS, 'Usuario registrado correctamente')
             return redirect('list_product')
         else:
-            return Response(user.errors, status=status.HTTP_400_BAD_REQUEST)
+            messages.add_message(request, messages.ERROR, '!!!! El usuario ya existe !!!!')
+            return redirect("register")
 
 
 class Login(APIView):
