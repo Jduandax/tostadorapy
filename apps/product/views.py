@@ -131,17 +131,18 @@ class ProductCartList(APIView):
     def get(self, request):
         cliente = Clientlogeado.get(self, request)
         carts = Cart.objects.filter(user_id=cliente.data['id'])
-        order = Order.objects.filter(user_id=cliente.data['id'])
-        products = []
-        for cart in carts:
-            product = Product.objects.get(pk=cart.product_id)
-            products.append(product)
-        return render(request, 'cart.html', {
-            'products': products,
-            'carts': carts, 'order': order})
-        # else:
-        #     messages.add_message(request, messages.ERROR, 'No tienes productos en el carrito')
-        #     return redirect('list_product')
+        if Order.objects.filter(user_id=cliente.data['id']):
+            order = Order.objects.get(user_id=cliente.data['id'])
+            products = []
+            for cart in carts:
+                product = Product.objects.get(pk=cart.product_id)
+                products.append(product)
+            return render(request, 'cart.html', {
+                'products': products,
+                'carts': carts, 'order': order})
+        else:
+            return render(request, 'cart.html', {
+                'carts': carts})
 
 
 class DeleteProductCart(APIView):
