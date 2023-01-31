@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Editar Persona</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/fontawesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/brands.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/regular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/solid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/svg-with-js.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/v4-shims.css">
+</head>
+
+<body>
+<img src="../static/images/enersinc.png"
+     alt="energias"
+     style="width: 100%;
+     height: 80%;
+     position: absolute;
+     z-index: -1;
+     opacity: 0.2;
+     filter: alpha(opacity=90);">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Editar Producto</h1>
+            <form action="{% url 'edit_product' product.id %}" method="post" id="form-persona">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="presentation">Presentacion</label>
+                    <select name="presentation" id="presentation" class="form-control">
+                        <option value="1">10 Kg</option>
+                        <option value="2">20 Kg</option>
+                        <option value="3">30 Kg</option>
+                        <option value="4">40 Kg</option>
+                        <option value="5">50 Kg</option>
+                        <option value="6">60 Kg</option>
+                        <option value="7">70 Kg</option>
+                        <option value="8">80 Kg</option>
+                        <option value="9">90 Kg</option>
+                        <option value="10">100 Kg</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Nombre Del Producto</label>
+                    <input type="text" name="name" id="name" class="form-control"
+                           value="{{ product.name }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="picture">Imagen Del Producto</label>
+                    <input type="text" name="picture" id="picture" class="form-control"
+                           value="{{ product.picture }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="text" name="stock" id="stock" class="form-control"
+                           value="{{ product.stock }}">
+                </div>
+                <div class="form-group">
+                    <!-- boton de enviar -->
+                    <button type="submit" class="btn btn-primary"
+                            onclick="alert ('Se ha editado El Producto con exito')">
+                        Guardar
+                    </button>
+
+                    <!-- boton de cancelar -->
+                    <a href="{% url 'edit_product' product.id %}" class="btn btn-danger">Cancelar</a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

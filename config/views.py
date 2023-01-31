@@ -15,3 +15,8 @@ class ProductView(TemplateView):
 class ConocenosView(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'aboutUs.html', context=None)
+
+
+class AdminView(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'admin.html', context=None)

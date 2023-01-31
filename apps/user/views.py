@@ -4,18 +4,15 @@ from rest_framework.views import APIView
 
 from .models import User
 from .serializers import UserSerializers
+from django.shortcuts import render, redirect
 
 
 class UserList(APIView):
     def get(self, request):
         users = User.objects.all()
         users = UserSerializers(users, many=True).data
-        count = len(users)
-        return Response(
-            {
-                "count": count,
-                "users": users,
-            }, status=status.HTTP_200_OK)
+        return render(request, 'listar_usuarios.html', {'users': users})
+
 
 
 class UserDelete(APIView):
@@ -23,9 +20,9 @@ class UserDelete(APIView):
         try:
             user = User.objects.filter(id=pk)
             user.delete()
-            return Response('User delete', status=status.HTTP_204_NO_CONTENT)
+            return redirect('user_list')
         except:
-            return Response("User don't exist")
+            return Response('No se pudo eliminar el usuario', status=status.HTTP_400_BAD_REQUEST)
 
 
 class Clientlogeado(APIView):

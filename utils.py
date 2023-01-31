@@ -41,6 +41,6 @@ def send_email_discounts(user):
     send_mail(subject, message, email_from, recipient_list)
 
 
-
-
-
+def get_name_role(id):
+    rol = Rol.objects.get(id=id)
+    return rol.name

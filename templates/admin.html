@@ -1,10 +1,391 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>Adminastrador</title>
+    <script src="{% static 'assetsAdmin/js/vendor-all.min.js' %}"></script>
+    <script src="{% static 'assetsAdmin/js/plugins/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assetsAdmin/js/pcoded.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'assetsAdmin/css/style.css' %}">
+    <link rel="icon" href="{% static 'img/cafe.png' %}" type="image/x-icon"/>
 </head>
+
 <body>
+<div class="loader-bg">
+    <div class="loader-track">
+        <div class="loader-fill"></div>
+    </div>
+</div>
+
+<header xmlns="http://www.w3.org/1999/xhtml" class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
+
+
+    <div class="m-header">
+        <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+        <a href="#!" class="">
+            <!-- ========   change your logo hear   ============ -->
+
+            <img src="{% static 'assetsAdmin/images/cafe.png' %}" width="40px" height="40px" alt="" class="logo"/>
+
+            <img src="{% static 'assetsAdmin/images/cafe.png' %}" alt="" class="logo-thumb"/>
+        </a>
+        <a href="#!" class="mob-toggler">
+            <i class="feather icon-more-vertical"></i>
+        </a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="#!" class="pop-search"><i class="feather icon-search"></i></a>
+                <div class="search-bar">
+                    <input type="text" class="form-control border-0 shadow-none" placeholder="Search hear"/>
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown">
+
+                    <div class="dropdown-menu profile-notification ">
+                        <ul class="pro-body">
+                            <li><a href="user-profile.html" class="dropdown-item"><i class="fas fa-circle"></i>
+                                Perfil</a></li>
+                            <li><a href="email_inbox.html" class="dropdown-item"><i class="fas fa-circle"></i> Mis
+                                Mensajes</a></li>
+                            <li><a href="auth-signin.html" class="dropdown-item"><i class="fas fa-circle"></i> Seguridad
+                                y Privacidad</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li>
+                <div class="dropdown">
+                    <a class="dropdown-toggle" href="../../index.xhtml" data-toggle="dropdown">
+                        <i class="icon feather icon-bell"></i>
+                        <span class="badge badge-pill badge-danger">5</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right notification">
+                        <div class="noti-head">
+                            <h6 class="d-inline-block m-b-0">Notifications</h6>
+                            <div class="float-right">
+                                <a href="#!" class="m-r-10">mark as read</a>
+                                <a href="#!">clear all</a>
+                            </div>
+                        </div>
+                        <ul class="noti-body">
+                            <li class="n-title">
+                                <p class="m-b-0">NEW</p>
+                            </li>
+{#                            <li class="notification">#}
+{#                                <div class="media">#}
+{#                                    <img class="img-radius" src="{% static '/assetsAdmin/images/user/avatar-1.jpg' %}"#}
+{#                                         alt="Generic placeholder image"/>#}
+{#                                    <div class="media-body">#}
+{#                                        <p><strong>John Doe</strong><span class="n-time text-muted"><i#}
+{#                                                class="icon feather icon-clock m-r-10"></i>5 min</span></p>#}
+{#                                        <p>New ticket Added</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="n-title">#}
+{#                                <p class="m-b-0">EARLIER</p>#}
+{#                            </li>#}
+{#                            <li class="notification">#}
+{#                                <div class="media">#}
+{#                                    <img class="img-radius" src="{% static '/assetsAdmin/images/user/avatar-1.jpg' %}"#}
+{#                                         alt="Generic placeholder image"/>#}
+{#                                    <div class="media-body">#}
+{#                                        <p><strong>Joseph William</strong><span class="n-time text-muted"><i#}
+{#                                                class="icon feather icon-clock m-r-10"></i>10 min</span></p>#}
+{#                                        <p>Prchace New Theme and make payment</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="notification">#}
+{#                                <div class="media">#}
+{#                                    <img class="img-radius" src="../assets/assetsAdmin/images/user/avatar-1.jpg"#}
+{#                                         alt="Generic placeholder image"/>#}
+{#                                    <div class="media-body">#}
+{#                                        <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i#}
+{#                                                class="icon feather icon-clock m-r-10"></i>12 min</span></p>#}
+{#                                        <p>currently login</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                            <li class="notification">#}
+{#                                <div class="media">#}
+{#                                    <img class="img-radius" src="{% static '/assetsAdmin/images/user/avatar-2.jpg' %}"#}
+{#                                         alt="Generic placeholder image"/>#}
+{#                                    <div class="media-body">#}
+{#                                        <p><strong>Joseph William</strong><span class="n-time text-muted"><i#}
+{#                                                class="icon feather icon-clock m-r-10"></i>30 min</span></p>#}
+{#                                        <p>Prchace New Theme and make payment</p>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </li>#}
+{#                        </ul>#}
+                        <div class="noti-footer">
+                            <a href="#!">show all</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dropdown drp-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="feather icon-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right profile-notification">
+                        <div class="pro-head">
+                            <img src="{% static '/assetsAdmin/images/user/avatar-1.jpg' %}" class="img-radius"
+                                 alt="User-Profile-Image"/>
+                            <span>John Doe</span>
+                            <a href="../index.xhtml" class="dud-logout" title="Logout">
+                                <i class="feather icon-log-out"></i>
+                            </a>
+                        </div>
+{#                        <ul class="pro-body">#}
+{#                            <li><a href="../../usuario/cliente.xhtml" class="dropdown-item"><i#}
+{#                                    class="feather icon-user"></i> Perfil</a></li>#}
+{#                            <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> Mis#}
+{#                                Mensajes</a></li>#}
+{#                            <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i>#}
+{#                                Seguridad y Privacidad</a></li>#}
+{#                        </ul>#}
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+<!-- [ Header ] end -->
+
+<nav class="pcoded-navbar  ">
+    <div class="navbar-wrapper  ">
+        <div class="navbar-content scroll-div ">
+            <div class="">
+                <div class="main-menu-header">
+                    <img class="img-radius" src="{% static 'assetsAdmin/images/user/avatar-2.jpg' %}"
+                         alt="User-Profile-Image"/>
+                    <div class="user-details">
+                        <span>Juan Cantillo</span>
+                        <div id="more-details">Administrador</div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav pcoded-inner-navbar ">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Navegación</label>
+                </li>
+                <li class="nav-item">
+                    <a href="../administrador/index.xhtml" class="nav-link "><span
+                            class="pcoded-micon"><i
+                            class="feather icon-list"></i></span><span
+                            class="">Inicio</span>
+                    </a>
+                    <a href="{% url 'register_product' %}" class="nav-link "><span
+                            class="pcoded-micon"><i
+                            class="feather icon-list"></i></span><span
+                            class="">Registrar Y Listar  Producto</span>
+                    </a>
+                    <a href="{% url 'user_list' %}" class="nav-link "><span
+                            class="pcoded-micon"><i
+                            class="feather icon-list"></i></span><span
+                            class="pcoded-mtext">Listar Y Eliminar Usuarios</span></a>
+
+                    <a href="{% url 'home' %}" class="nav-link "><span
+                            class="pcoded-micon"><i
+                            class="feather icon-list"></i></span><span
+                            class="pcoded-mtext">Salir</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="pcoded-main-container">
+    <div class="pcoded-wrapper">
+        <div class="pcoded-content">
+            <div class="pcoded-inner-content">
+                <div class="main-body">
+                    <div class="page-wrapper">
+                        <div class="page-body">
+                            <div class="row">
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-c-blue order-card">
+                                        <div class="card-block">
+                                            <h6 class="m-b-20">Total de Clientes</h6>
+                                            <h2 class="text-right"><i class="ti-user f-left"></i>
+                                                <h:outputText value="#{inicioSesion.cantidadUsuarios()}"/>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-c-green order-card">
+                                        <div class="card-block">
+                                            <h6 class="m-b-20">Total de Productos</h6>
+                                            <h2 class="text-right"><i class="ti-tag f-left"></i>
+                                                <h:outputText value="#{productos.cantidadProductos()}"/>
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-c-yellow order-card">
+                                        <div class="card-block">
+                                            <h6 class="m-b-20">Total de Ventas</h6>
+                                            <h2 class="text-right"><i class="ti-wallet f-left"></i><span>486</span>
+                                            </h2>
+                                            <p class="m-b-0">Ventas realizadas<span class="f-right">48%</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-6">
+                                    <div class="card bg-c-pink order-card">
+                                        <div class="card-block">
+                                            <h6 class="m-b-20">Total de Compras</h6>
+                                            <h2 class="text-right"><i
+                                                    class="ti-shopping-cart f-left"></i><span>486</span></h2>
+                                            <p class="m-b-0">Compras realizadas<span class="f-right">48%</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6 col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Gráfico de Ventas</h5>
+                                            <span>Gráfico de ventas por mes</span>
+                                        </div>
+                                        <div class="card-block">
+                                            <div id="chart-container">
+                                                <canvas id="myChart"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Gráfico de Compras</h5>
+                                            <span>Gráfico de compras por mes</span>
+                                        </div>
+                                        <div class="card-block">
+                                            <div id="chart-container">
+                                                <canvas id="myChart2"></canvas>
+                                                <h:form>
+                                                    <h:commandButton value="Envio De Promociones"
+                                                                     action="#{emailMasive.enviarCorreo()}"
+                                                                     style="margin-top: 10px;"
+                                                                     styleClass="btn btn-primary btn-sm btn-round has-ripple"
+                                                    />
+                                                </h:form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Últimas Ventas</h5>
+                                            <span>Últimas ventas realizadas</span>
+                                        </div>
+                                        <div class="card-block">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Fecha</th>
+                                                        <th>Cliente</th>
+                                                        <th>Producto</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Precio</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>2018-01-01</td>
+                                                        <td>Cliente 1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>1</td>
+                                                        <td>100</td>
+                                                        <td>100</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-md-12">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h5>Últimas Compras</h5>
+                                            <span>Últimas compras realizadas</span>
+                                        </div>
+                                        <div class="card-block">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Fecha</th>
+                                                        <th>Proveedor</th>
+                                                        <th>Producto</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Precio</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>2018-01-01</td>
+                                                        <td>Proveedor 1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>1</td>
+                                                        <td>100</td>
+                                                        <td>100</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2018-01-01</td>
+                                                        <td>Proveedor 1</td>
+                                                        <td>Producto 1</td>
+                                                        <td>1</td>
+                                                        <td>100</td>
+                                                        <td>100</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'assetsAdmin/js/vendor-all.min.js' %}"></script>
+<script src="{% static 'assetsAdmin/js/plugins/bootstrap.min.js' %}"></script>
+<script src="{% static 'assetsAdmin/js/pages/dashboard-main.js' %}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </body>
 </html>
+
+
+
+
+
+
+

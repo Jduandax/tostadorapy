@@ -4,7 +4,7 @@ from rest_framework.views import APIView
 from .models import User
 from .serializers import UserSerializers
 from .models import Rol
-from utils import set_rol, send_email, recovery_password, send_email_discounts
+from utils import set_rol, send_email, recovery_password, send_email_discounts, get_name_role
 import os, sys, django
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -41,12 +41,25 @@ class Login(APIView):
         password = request.data.get('password')
         request.session['email'] = email
         try:
-            cliente = User.objects.get(email=email)
-            if cliente:
-                if password == cliente.password:
-                    messages.add_message(request, messages.SUCCESS, 'Usuario logeado correctamente')
-                    return redirect('list_product')
-                return Response('Password incorrect')
+            rol = User.objects.get(email=email)
+            rol = get_name_role(rol.rol_id_id)
+            if rol != 'admin':
+                cliente = User.objects.get(email=email)
+                if cliente:
+                    if password == cliente.password:
+                        messages.add_message(request, messages.SUCCESS, f'Bienvenido Cliente {cliente.name}')
+                        return redirect('list_product')
+                    return Response('Password incorrect')
+            else:
+                admin = User.objects.get(email=email)
+                if admin:
+                    if password == admin.password:
+                        messages.add_message(request, messages.SUCCESS, f'Bienvenido Administrador  {admin.name}')
+                        return redirect('admin')
+                    return Response('Password incorrect')
+                else:
+                    messages.add_message(request, messages.ERROR, f'El {email} no se encuentra registrado')
+                    return Response('No existe')
         except:
             return Response('No existe')
 
@@ -79,4 +92,3 @@ class RecoveryPassword(APIView):
         recovery_password(user)
         messages.add_message(request, messages.SUCCESS, 'Se ha enviado un correo a su cuenta')
         return redirect('login')
-

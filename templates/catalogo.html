@@ -34,7 +34,6 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <!-- responsive -->
     <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
-
     <style>
         .container {
             width: 100%;
@@ -46,9 +45,38 @@
             display: inline-block;
         }
 
-        .row product-lists {
-            display: inline-block;
+        .single-product-item {
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #b1afaf;
+            border-radius: 5px;
+            width: 375px;
+            height: 450px;
+            margin-left: 10px;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(154, 147, 147, 0.5);
+
         }
+
+        .select-quantity {
+            padding: 5px 10px;
+            border-left: none;
+            height: 40px;
+            text-align: center;
+            font-size: 16px;
+            color: #f0ecec;
+            font-weight: 600;
+            cursor: pointer;
+            background: #af9062;
+        }
+
+        .select-quantity:hover {
+            background: #705e51;
+
+        }
+
+
     </style>
 
 </head>
@@ -132,45 +160,66 @@
     </div>
 </div>
 <!-- end breadcrumb section -->
-
 <!-- products -->
-
 {% if messages %}
     <div class="alert alert-success">
         {% for message in messages %}
             <p>{{ message }}</p>
+            <script>
+                setTimeout(function () {
+                    $(".alert").alert('close');
+                }, 2500);
+            </script>
         {% endfor %}
     </div>
 {% endif %}
-<!-- end products -->
+<div class="container">
+</div>
+
+{#<div class="product-section mt-150 mb-150">#}
+{#    <div class="container">#}
+{##}
+{#        <div class="row">#}
+{#            <div class="col-md-12">#}
+{#                <div class="product-filters">#}
+{#                    <ul>#}
+{#                        <li class="active" data-filter="*">Productos</li>#}
+{#                    </ul>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
 <div class="row product-lists">
-    <div class="col-lg-4 col-md-6 text-center strawberry">
-        {% for product in products %}
-            <div class="col-lg-4 col-md-6 text-center strawberry">
-                <div class=single-product-item">
+    {% for product in products %}
+        <div class="col-lg-4 col-md-6 text-center strawberry">
+            <div class="col-lg-4">
+                <div class="single-product-item">
                     <div class="product-imag">
                         <h3> {{ product.name }}</h3>
                     </div>
                     <div class="product-imag">
-                        <img src="{{ product.picture }}" alt="Product Image"
-                             style="width: 350px; height: 350px; object-fit:cover ;">
-                        <div class="product-action">
-                            <a href="{% url 'add_product' product.id %}">
-                                <i class="fas fa-cart-plus">Agregar Al Carrito</i>
-                            </a>
-                        </div>
+                        <img src="{{ product.picture }}" alt="Product Image">
                     </div>
                     <div class="product-price">
-                        <h4><span>COP. </span>{{ product.price |floatformat:0|intcomma }}</h4>
+                        <h4><span>COP.  </span>{{ product.price |floatformat:2 }}</h4>
+                    </div>
+                    <div class="product-text">
+                        <p>{{ product.presentation }}</p>
+                    </div>
+
+                    <div class="product-action">
+                        <br>
+                        <a href="{% url 'add_product' product.id %}" class="cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            Agregar Al Carrito
+                        </a>
                     </div>
                 </div>
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
 </div>
+
 <!-- end products -->
-
-
 <!-- logo carousel -->
 <div class="logo-carousel-section">
     <div class="container">
