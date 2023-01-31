@@ -44,3 +44,11 @@ def send_email_discounts(user):
 def get_name_role(id):
     rol = Rol.objects.get(id=id)
     return rol.name
+
+
+def send_email_address(user, address):
+    subject = 'Direccion de envio'
+    message = f'Hola {user.name} , tu direccion de envio es: {address[0].direccion}'
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = [user.email, os.environ.get('EMAIL_HOST_USER')]
+    send_mail(subject, message, email_from, recipient_list)

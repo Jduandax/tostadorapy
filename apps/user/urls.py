@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import UserList, UserDelete, Clientlogeado
-from .clients import Register, Login, Logout, EditProfile, RecoveryPassword
+from .clients import Register, Login, Logout, EditProfile, RecoveryPassword,CreateAddress
 
 
 urlpatterns = [
@@ -12,5 +12,6 @@ urlpatterns = [
     path('clientlogeado/', Clientlogeado.as_view(), name='clientlogeado'),
     path('editprofile/<int:pk>', EditProfile.as_view(), name='editprofile'),
     path('recovery/', RecoveryPassword.as_view(), name='recovery'),
+    path('createaddress/', CreateAddress.as_view(), name='createaddress'),
 
 ]

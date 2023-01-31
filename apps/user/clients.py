@@ -1,10 +1,9 @@
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import User
-from .serializers import UserSerializers
-from .models import Rol
-from utils import set_rol, send_email, recovery_password, send_email_discounts, get_name_role
+from .models import User, Rol, Address
+from .serializers import UserSerializers, RolSerializers, AddressSerializers
+from utils import set_rol, send_email, recovery_password, send_email_discounts, get_name_role, send_email_address
 import os, sys, django
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -93,3 +92,32 @@ class RecoveryPassword(APIView):
         recovery_password(user)
         messages.add_message(request, messages.SUCCESS, 'Se ha enviado un correo a su cuenta')
         return redirect('login')
+
+
+class CreateAddress(APIView):
+    def get(self, request):
+        cliente = User.objects.all()
+        cliente = UserSerializers(cliente, many=True).data
+        return render(request, 'formulario_de_envio.html', {'cliente': cliente})
+
+    def post(self, request):
+        user = User.objects.get(email=request.session['email'])
+        user_id = user.id
+        address = AddressSerializers(data=request.data)
+        if address.is_valid():
+            address.save()
+            address = Address.objects.last()
+            address.user_id_id = user_id
+            address.save()
+            address = Address.objects.filter(user_id_id=user_id)
+            print(address[0].direccion)
+            messages.add_message(request, messages.SUCCESS, 'Datos de envio registrados correctamente')
+            send_email_address(user, address)
+            return render(request, 'formulario_de_envio.html',
+                          {
+                              'cliente': user,
+                              'address': address
+                          })
+        else:
+            messages.add_message(request, messages.ERROR, '!!!! La direccion ya existe !!!!')
+            return redirect("createaddress")
