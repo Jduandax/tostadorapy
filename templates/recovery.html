@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperar Contraseña</title>
+    <link rel="shortcut icon" type="image/png" href={% static "/img/cafe.png" %}/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" href={% static "/assets_register/css/style.css" %}/>
+    <link rel="stylesheet" href={% static "assets_register/css/style.css" %}/>
+    <link rel="stylesheet" href="{% static  '/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <style>
+        .footer-area {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #2e2a2a;
+            color: white;
+            text-align: center;
+            background-image: -webkit-linear-gradient(45deg, #2e2a2a 0%, #767474 100%);
+        }
+
+        p {
+            line-height: 5%
+        }
+    </style>
+</head>
+
+<body>
+{% if messages %}
+    <div class="alert alert-success">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+<div class="form-v6">
+    <div class="page-content">
+        <div class="form-v6-content">
+            <div class="form-left">
+                <img src={% static "assets_register/images/cafe-taza.gif" %} alt="form"
+                     style="width: 1000px; height: 99%">
+
+                />
+            </div>
+            <form class="form-detail" action="#" method="post">
+                <h2>Recuperacion de contraseña</h2>
+
+                <div class="form-row">
+                    <label for="email">Correo electronico</label>
+                    <input type="text" name="email" id="email" class="input-text" required>
+                </div>
+                <div class="form-row-last">
+                    <input type="submit" name="register" class="register" value="Enviar">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class=" footer-area">
+    <h4>© 2020 Todos los derechos reservados. Diseñado por: DRJ Developers ©</h4>
+    <h5> Juancantillo1317@gmail.com </h5>
+    <h5> Cel : +57 3184760156 </h5>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div align="center" inline-block="display" class="social-icons">
+        <ul class="list-unstyled list-inline">
+            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+        </ul>
+    </div>
+</div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src={% static "/assets_index/plugins/common/common.min.js" %}></script>
+<script src={% static "/assets_index/js/custom.min.js" %}></script>
+<script src={% static "/assets_index/js/settings.js" %}></script>
+<script src={% static "/assets_index/js/gleek.js" %}></script>
+<script src={% static "/assets_index/js/styleSwitcher.js" %}></script>
+
+</body>
+</html>
