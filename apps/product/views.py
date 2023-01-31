@@ -154,5 +154,8 @@ class DeleteProductCart(APIView):
         order.save()
         if cart.quantity == 0:
             cart.delete()
-        messages.add_message(request, messages.SUCCESS, f'Producto {cart.product.name} eliminado del carrito')
-        return redirect('list_product')
+            messages.add_message(request, messages.SUCCESS, f'Producto {cart.product.name} eliminado del carrito')
+            return redirect('list_product')
+        else:
+            messages.add_message(request, messages.SUCCESS, f'Producto {cart.product.name} eliminado del carrito')
+            return redirect('product_cart')
