@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,20 +12,23 @@
 
     <style type="text/css">
         body {
-            margin-top: 20px;
+            margin-top: 100px;
             background: #ac8b4f;
-            background-image: url(https://previews.123rf.com/images/annazubkova/annazubkova1608/annazubkova160800021/62125822-de-fondo-sin-fisuras-con-las-siluetas-de-los-granos-de-caf%C3%A9-patr%C3%B3n-dibujado-a-mano-para-el-dise%C3%B1o-de.jpg);
+            background-image: url("https://www.antojoentucocina.com/wp-content/uploads/2022/04/cafe.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: inherit;
+            background-attachment: fixed;
+            background-blend-mode: multiply;
+            backdrop-filter: contrast(0.8) saturate(0.9) brightness(0.9);
         }
-
         .container {
             background: #ac8b4f;
             padding: 10px;
         }
-
         .card {
             box-shadow: 0 1px 15px 1px rgba(52, 40, 104, .08);
         }
-
         .media-align-items-center {
             align-items: center;
             width: content-box;

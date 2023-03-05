@@ -4,26 +4,225 @@
 <head>
     <meta charset="UTF-8">
     <title>Recuperar Contraseña</title>
-    <link rel="shortcut icon" type="image/png" href={% static "/img/cafe.png" %}/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <link rel="stylesheet" href={% static "/assets_register/css/style.css" %}/>
-    <link rel="stylesheet" href={% static "assets_register/css/style.css" %}/>
-    <link rel="stylesheet" href="{% static  '/css/all.min.css' %}">
+        <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <!-- animate css -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <!-- mean menu css -->
+    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+    <!-- main style -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-    <style>
-        .footer-area {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background-color: #2e2a2a;
-            color: white;
-            text-align: center;
-            background-image: -webkit-linear-gradient(45deg, #2e2a2a 0%, #767474 100%);
+    <!-- responsive -->
+    <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
+
+    <style type="text/css">
+        body {
+            margin-top: 100px;
+            background: #ac8b4f;
+            background-image: url("https://www.antojoentucocina.com/wp-content/uploads/2022/04/cafe.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: inherit;
+            background-attachment: fixed;
+            background-blend-mode: multiply;
+            backdrop-filter: contrast(0.8) saturate(0.9) brightness(0.9);
         }
 
-        p {
-            line-height: 5%
+        .form-v6-content {
+            width: 100%;
+            max-width: 1000px;
+            background: #e7d8ba;
+            margin: 0 auto;
+            padding: 50px 70px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px -6px #000;
+            background-blend-mode: multiply;
+            backdrop-filter: contrast(0.8) saturate(0.9) brightness(0.9);
+        }
+
+        .form-v6-content h2 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #333;
+            font-weight: 700;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .form-v6-content form {
+            width: 100%;
+        }
+
+        .form-v6-content form .form-row {
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .form-v6-content form .form-row .form-row-last {
+            margin-right: 0;
+        }
+
+        .form-v6-content form .form-row input {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            outline: none;
+        }
+
+        .form-v6-content form .form-row input:focus {
+            border-color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-row input[type="submit"] {
+            background: #ac8b4f;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.4s ease 0s;
+        }
+
+        .form-v6-content form .form-row input[type="submit"]:hover {
+            background: #ac8b4f;
+            opacity: .8;
+        }
+
+        .form-v6-content form .form-row-last {
+            text-align: center;
+        }
+
+        .form-v6-content form .form-row-last .account {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-v6-content form .form-row-last .account a {
+            color: #ac8b4f;
+            text-decoration: none;
+            transition: all 0.4s ease 0s;
+        }
+
+        .form-v6-content form .form-row-last .account a:hover {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-v6-content form .form-checkbox label {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"] {
+            display: none;
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"] + span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"] + span:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            background: #ac8b4f;
+            opacity: 0;
+            transition: all 0.2s ease 0s;
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"]:checked + span:before {
+            opacity: 1;
+        }
+
+        .form-v6-content form .form-checkbox label span {
+            position: relative;
+            top: 2px;
+            margin-left: 5px;
+            color: #333;
+            font-size: 14px;
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .form-v6-content form .form-checkbox label span:hover {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox label span a {
+            color: #ac8b4f;
+            text-decoration: none;
+            transition: all 0.4s ease 0s;
+        }
+
+        .form-v6-content form .form-checkbox label span a:hover {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox label span:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background: #ac8b4f;
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.2s ease 0s;
+        }
+        .botones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-left {
+            width: 30%;
+            height: 100%;
+            background: #dddbd2;
+            border-radius: 10px;
+            padding: 10px 10px;
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease 0s;
+            margin: 0 auto;
+
         }
     </style>
 </head>
@@ -42,51 +241,26 @@
             <div class="form-left">
                 <img src={% static "assets_register/images/cafe-taza.gif" %} alt="form"
                      style="width: 1000px; height: 99%">
-
-                />
             </div>
+            <br>
+            <br>
             <form class="form-detail" action="#" method="post">
-                <h2>Recuperacion de contraseña</h2>
+                <h2>Recuperación De Contraseña</h2>
 
                 <div class="form-row">
-                    <label for="email">Correo electronico</label>
+                    <label for="email">Correo Electrónico</label>
                     <input type="text" name="email" id="email" class="input-text" required>
                 </div>
                 <div class="form-row-last">
-                    <input type="submit" name="register" class="register" value="Enviar">
+                    <button type="submit" class="btn btn-primary"
+                            onclick="alert ('Se ha enviado un correo a su cuenta de correo electrónico')">
+                        Enviar
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div class=" footer-area">
-    <h4>© 2020 Todos los derechos reservados. Diseñado por: DRJ Developers ©</h4>
-    <h5> Juancantillo1317@gmail.com </h5>
-    <h5> Cel : +57 3184760156 </h5>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-    <div align="center" inline-block="display" class="social-icons">
-        <ul class="list-unstyled list-inline">
-            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
-        </ul>
-    </div>
-</div>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src={% static "/assets_index/plugins/common/common.min.js" %}></script>
-<script src={% static "/assets_index/js/custom.min.js" %}></script>
-<script src={% static "/assets_index/js/settings.js" %}></script>
-<script src={% static "/assets_index/js/gleek.js" %}></script>
-<script src={% static "/assets_index/js/styleSwitcher.js" %}></script>
 
 </body>
 </html>

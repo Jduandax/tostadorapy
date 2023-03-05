@@ -1,212 +1,310 @@
 body {
-	margin:  0;
-	padding:  0;
-	font-family:  'Roboto', sans-serif;
+            margin-top: 100px;
+            background: #ac8b4f;
+            background-image: url("https://www.antojoentucocina.com/wp-content/uploads/2022/04/cafe.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: inherit;
+            background-attachment: fixed;
+            background-blend-mode: multiply;
+            backdrop-filter: contrast(0.8) saturate(0.9) brightness(0.9);
+        }
 
-}
-.page-content {
-	width: 100%;
-	margin:  0 auto;
-	background-image: -moz-linear-gradient( 136deg, rgb(243, 167, 7) 0%, rgb(198, 190, 148) 100%);
-    background-image: -webkit-linear-gradient( 136deg, rgb(243, 167, 7) 0%, rgb(250, 211, 143) 100%);
-    background-image: -ms-linear-gradient( 136deg, rgb(243, 167, 7) 0%, rgb(234, 211, 162) 100%);
-	display: flex;
-	display: -webkit-flex;
-	justify-content: center;
-	-o-justify-content: center;
-	-ms-justify-content: center;
-	-moz-justify-content: center;
-	-webkit-justify-content: center;
-	align-items: center;
-	-o-align-items: center;
-	-ms-align-items: center;
-	-moz-align-items: center;
-	-webkit-align-items: center;
-	padding: 40px 0;
+        .form-v6-content {
+            width: 100%;
+            max-width: 1000px;
+            background: #e7d8ba;
+            margin: 0 auto;
+            padding: 50px 70px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px -6px #000;
+            background-blend-mode: multiply;
+            backdrop-filter: contrast(0.8) saturate(0.9) brightness(0.9);
+        }
 
-}
-.form-v6-content  {
-	background: #fff;
-	width: 968px;
-	border-radius: 8px;
-	-o-border-radius: 8px;
-	-ms-border-radius: 8px;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	margin: 180px 0;
-	font-family: 'Nunito', sans-serif;
-	color: #fff;
-	font-weight: 700;
-	position: relative;
-	display: flex;
-	display: -webkit-flex;
-}
-.form-v6-content .form-left {
-	margin-bottom: -6px;
-}
-.form-v6-content .form-left img {
-	border-top-left-radius: 8px;
-	border-bottom-left-radius: 8px;
-	/*3d*/
-	-o-border-top-left-radius: 8px;
-	-o-border-bottom-left-radius: 8px;
-}
-.form-v6-content .form-detail {
-    padding: 30px 40px;
-	position: relative;
-	width: 100%;
-}
-.form-v6-content .form-detail h2 {
-	color: #333;
-	font-size: 35px;
-	text-align: center;
-	position: relative;
-	padding: 6px 0 0;
-	margin-bottom: 47px;
-}
-.form-v6-content .form-row {
-    width: 100%;
-}
-.form-v6-content .form-detail .form-row-last {
-	text-align: center;
-	-ms-content-zoom-snap-points: initial;
-	/*dismunir tamaño del boton	*/
+        .form-v6-content h2 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #333;
+            font-weight: 700;
+            font-size: 30px;
+            text-align: center;
+        }
 
+        .form-v6-content form {
+            width: 100%;
+        }
 
-}
-.form-v6-content .form-detail .input-text {
-	margin-bottom: 35px;
-}
-.form-v6-content .form-detail input {
-	width: 92%;
-    padding: 0px 15px 10px 15px;
-    border: 2px solid transparent;
-    border-bottom: 2px solid #0052f7;
-    appearance: unset;
-    -moz-appearance: unset;
-    -webkit-appearance: unset;
-    -o-appearance: unset;
-    -ms-appearance: unset;
-    outline: none;
-    -moz-outline: none;
-    -webkit-outline: none;
-    -o-outline: none;
-    -ms-outline: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #333;
-}
-.form-v6-content .form-detail .form-row input:focus {
-	border-bottom: 2px solid #fe892a;
-}
-.form-v6-content .form-detail .register {
-	background: #fe892a;
-	border-radius: 6px;
-	-o-border-radius: 6px;
-	-ms-border-radius: 6px;
-	-moz-border-radius: 6px;
-	-webkit-border-radius: 6px;
-	width: 160px;
-	box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-	-o-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-	-ms-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-	-webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-	border: none;
-	margin: 11px 0 50px 0px;
-	cursor: pointer;
-	font-family: 'Nunito', sans-serif;
-	color: #fff;
-	font-weight: 700;
-	font-size: 18px;
-}
-.form-v6-content .form-detail .register:hover {
-	background: #e37b27;
-}
-.form-v6-content .form-detail .form-row-last input {
-	padding: 13px;
+        .form-v6-content form .form-row {
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
 
-}
-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #666;
-  font-size: 16px;
-}
-input::-moz-placeholder { /* Firefox 19+ */
-  color: #666;
-  font-size: 16px;
-}
-input:-ms-input-placeholder { /* IE 10+ */
-  color: #666;
-  font-size: 16px;
-}
-input:-moz-placeholder { /* Firefox 18- */
-  color: #666;
-  font-size: 16px;
-}
+        .form-v6-content form .form-row .form-row-last {
+            margin-right: 0;
+        }
 
-/* Responsive */
-@media screen and (max-width: 991px) {
-	.form-v6-content {
-		margin: 180px 20px;
-		flex-direction:  column;
-		-o-flex-direction:  column;
-		-ms-flex-direction:  column;
-		-moz-flex-direction:  column;
-		-webkit-flex-direction:  column;
-	}
-	.form-v6-content .form-left {
-		width: 100%;
-	}
-	.form-v6-content .form-left img {
-		width: 100%;
-		border-bottom-left-radius: 0px;
-	    border-top-right-radius: 8px;
-	}
-	.form-v6-content .form-detail {
-		padding: 30px 20px 30px 20px;
-	    width: auto;
-	}
-	.form-v6-content .form-detail .form-row input {
-		width: 96%;
-	}
-	.form-v6-content .form-detail .register {
-		margin-bottom: 80px;
-	}
-}
-@media screen and (max-width: 767px) {
-	.form-v6-content .form-detail .form-row input {
-		width: 94%;
-	}
-}
+        .form-v6-content form .form-row input {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            outline: none;
+        }
 
-@media screen and (max-width: 575px) {
-	.form-v6-content .form-detail .form-row input {
-	    width: 89%;
-	}
-}
-/*que quede uno al lado del otro*/
-.mt-5 login-form__footer {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 1.5rem;
-}
+        .form-v6-content form .form-row input:focus {
+            border-color: #ac8b4f;
+        }
 
-.container {
-	width: 100%;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
-}
+        .form-v6-content form .form-row input[type="submit"] {
+            background: #ac8b4f;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.4s ease 0s;
+        }
+
+        .form-v6-content form .form-row input[type="submit"]:hover {
+            background: #ac8b4f;
+            opacity: .8;
+        }
+
+        .form-v6-content form .form-row-last {
+            text-align: center;
+        }
+
+        .form-v6-content form .form-row-last .account {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-v6-content form .form-row-last .account a {
+            color: #ac8b4f;
+            text-decoration: none;
+            transition: all 0.4s ease 0s;
+        }
+
+        .form-v6-content form .form-row-last .account a:hover {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-v6-content form .form-checkbox label {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"] {
+            display: none;
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"] + span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"] + span:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            background: #ac8b4f;
+            opacity: 0;
+            transition: all 0.2s ease 0s;
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"]:checked + span:before {
+            opacity: 1;
+        }
+
+        .form-v6-content form .form-checkbox label span {
+            position: relative;
+            top: 2px;
+            margin-left: 5px;
+            color: #333;
+            font-size: 14px;
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .form-v6-content form .form-checkbox label span:hover {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox label span a {
+            color: #ac8b4f;
+            text-decoration: none;
+            transition: all 0.4s ease 0s;
+        }
+
+        .form-v6-content form .form-checkbox label span a:hover {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox label span:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background: #ac8b4f;
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.2s ease 0s;
+        }
+
+        .form-v6-content form .form-checkbox label:hover span:before {
+            opacity: 0.1;
+        }
+
+        .form-v6-content form .form-checkbox label:hover span {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox label:hover input[type="checkbox"] + span:before {
+            opacity: 0.5;
+        }
+
+        .form-v6-content form .form-checkbox label:hover input[type="checkbox"]:checked + span:before {
+            opacity: 1;
+        }
+
+        .form-v6-content form .form-checkbox label:hover input[type="checkbox"]:checked + span {
+            color: #ac8b4f;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
 
 
-.warnings{
-    width: 200px;
-    text-align: center;
-    margin: auto;
-    color: #B06AB3;
-    padding-top: 20px;
-}
+        }
+        .form-left {
+            width: 30%;
+            height: 100%;
+            background: #dddbd2;
+            border-radius: 10px;
+            padding: 10px 10px;
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease 0s;
+            margin: 0 auto;
 
+        }
+
+			.form-left:hover {
+			transform: translateY(-5px);
+		}
+
+		.form-left h2 {
+			margin: 0 0 30px;
+			padding: 0;
+			color: #333;
+			text-align: center;
+		}
+
+		.form-left p {
+			margin: 0 0 30px;
+			padding: 0;
+			color: #333;
+			text-align: center;
+		}
+
+		.form-left .input-group {
+			position: relative;
+			margin-bottom: 25px;
+		}
+
+		.form-left .input-group input {
+			width: 100%;
+			padding: 10px 0;
+			font-size: 16px;
+			color: #333;
+			letter-spacing: 1px;
+			margin-bottom: 30px;
+			border: none;
+			border-bottom: 1px solid #333;
+			outline: none;
+			background: transparent;
+		}
+
+		.form-left .input-group label {
+			position: absolute;
+			top: 10px;
+			left: 0;
+			letter-spacing: 1px;
+			padding: 10px 0;
+			font-size: 16px;
+			color: #333;
+			pointer-events: none;
+			transition: 0.5s;
+		}
+
+		.form-left .input-group input:focus ~ label,
+		.form-left .input-group input:valid ~ label {
+			top: -20px;
+			left: 0;
+			color: #ac8b4f;
+			font-size: 12px;
+		}
+
+		.form-left .submit {
+			width: 100%;
+			background: #ac8b4f;
+			border: none;
+			outline: none;
+			height: 40px;
+			color: #fff;
+			font-size: 18px;
+			border-radius: 20px;
+			cursor: pointer;
+			transition: all 0.3s ease 0s;
+		}
+
+		.form-left .submit:hover {
+			background: #ac8b4f;
+			opacity: .8;
+		}
+
+		.form-left .submit:focus {
+			background: #ac8b4f;
+			opacity: .8;
+		}
+
+		.form-left .submit:active {
+			background: #ac8b4f;
+			opacity: .8;
+		}
+
+		.form-left .submit:visited {
+			background: #ac8b4f;
+			opacity: .8;
+		}
