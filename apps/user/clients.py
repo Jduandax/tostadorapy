@@ -47,7 +47,7 @@ class Login(APIView):
                 cliente = User.objects.get(email=email)
                 if cliente:
                     if password == cliente.password:
-                        messages.add_message(request, messages.SUCCESS, f'Bienvenido Cliente {cliente.name}')
+                        messages.add_message(request, messages.INFO, f'Bienvenido Cliente {cliente.name}')
                         return redirect('list_product')
                     else:
                         messages.add_message(request, messages.ERROR, 'Contraseña incorrecta')
@@ -56,7 +56,7 @@ class Login(APIView):
                 admin = User.objects.get(email=email)
                 if admin:
                     if password == admin.password:
-                        messages.add_message(request, messages.SUCCESS, f'Bienvenido Administrador  {admin.name}')
+                        messages.add_message(request, messages.INFO, f'Bienvenido Administrador  {admin.name}')
                         return redirect('admin')
                     else:
                         messages.add_message(request, messages.ERROR, 'Contraseña incorrecta')
@@ -73,7 +73,7 @@ class Logout(APIView):
     def get(self, request):
         if 'email' in request.session:
             del request.session['email']
-            messages.add_message(request, messages.SUCCESS, 'Sesion cerrada correctamente')
+            messages.add_message(request, messages.INFO, 'Sesion cerrada correctamente')
             return redirect('login')
         else:
             messages.add_message(request, messages.ERROR, 'No hay ninguna sesion activa')
