@@ -230,6 +230,14 @@
 </head>
 
 <body>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
 
 <!-- Buscar Por Nombre del Producto -->
 <br>
@@ -239,7 +247,6 @@
 <br>
 <br>
 <div class="form-v6-content">
-{#    django#}
     <div class="form-left">
         <h2>Buscar Por Nombre del Producto</h2>
         <form class="form-detail" action="{% url 'filter_product' %}?name={{ search }}" method="post">

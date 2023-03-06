@@ -168,6 +168,14 @@
         <div class="circle"></div>
     </div>
 </div>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
 <!-- preloader area end -->
 <nav class="main-menu">
     <ul>
@@ -175,15 +183,8 @@
         <li class=""><a href="{% url 'product' %}">Productos</a></li>
         <li class=""><a href="{% url 'conocenos' %}">Conócenos</a></li>
         <li class="current-list-item"><a href="{% url 'ayuda' %}">Ayuda</a></li>
-{#        <li>#}
-{#            <div class="header-icons">#}
-{#                <a class="shopping-cart" href="{% url 'login' %}"><i#}
-{#                        class="fas fa-shopping-cart"></i></a>#}
-{#            </div>#}
-{#        </li>#}
     </ul>
 </nav>
-
 <!-- area de ayuda -->
 <div class="container">
     <div class="row">

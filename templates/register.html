@@ -148,14 +148,17 @@
         .form-v6-content form .form-checkbox label span:hover {
             color: #ac8b4f;
         }
+
         .form-v6-content form .form-checkbox label span a {
             color: #ac8b4f;
             text-decoration: none;
             transition: all 0.4s ease 0s;
         }
+
         .form-v6-content form .form-checkbox label span a:hover {
             color: #ac8b4f;
         }
+
         .form-v6-content form .form-checkbox label span:before {
             content: "";
             position: absolute;
@@ -169,6 +172,7 @@
             opacity: 0;
             transition: all 0.2s ease 0s;
         }
+
         .botones {
             display: flex;
             justify-content: center;
@@ -177,6 +181,7 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         .form-left {
             width: 30%;
             height: 100%;
@@ -191,22 +196,19 @@
     </style>
 </head>
 <body>
+
+
 {% if messages %}
-    <div class="alert alert-danger">
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    </div>
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
 {% endif %}
-{% if form.errors %}
-    <div class="alert alert-danger">
-        {% for field in form %}
-            {% for error in field.errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
-        {% endfor %}
-    </div>
-{% endif %}
+
+
+
 <div class="page-content">
     <div class="form-v6-content">
         <div class="form-left">

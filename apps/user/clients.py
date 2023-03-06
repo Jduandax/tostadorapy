@@ -49,19 +49,24 @@ class Login(APIView):
                     if password == cliente.password:
                         messages.add_message(request, messages.SUCCESS, f'Bienvenido Cliente {cliente.name}')
                         return redirect('list_product')
-                    return Response('Password incorrect')
+                    else:
+                        messages.add_message(request, messages.ERROR, 'Contraseña incorrecta')
+                        return redirect('login')
             else:
                 admin = User.objects.get(email=email)
                 if admin:
                     if password == admin.password:
                         messages.add_message(request, messages.SUCCESS, f'Bienvenido Administrador  {admin.name}')
                         return redirect('admin')
-                    return Response('Password incorrect')
+                    else:
+                        messages.add_message(request, messages.ERROR, 'Contraseña incorrecta')
+                        return redirect('login')
                 else:
                     messages.add_message(request, messages.ERROR, f'El {email} no se encuentra registrado')
-                    return Response('No existe')
+                    return redirect('login')
         except:
-            return Response('No existe')
+            messages.add_message(request, messages.ERROR, f'El {email} no se encuentra registrado')
+            return redirect('login')
 
 
 class Logout(APIView):

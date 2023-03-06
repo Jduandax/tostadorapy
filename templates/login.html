@@ -201,20 +201,12 @@
 </head>
 <body>
 {% if messages %}
-    <div class="alert alert-success">
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    </div>
-{% endif %}
-{% if form.errors %}
-    <div class="alert alert-danger">
-        {% for field in form %}
-            {% for error in field.errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
-        {% endfor %}
-    </div>
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
 {% endif %}
 
 
@@ -269,7 +261,6 @@
                     <p>&nbsp</p>
                     <p>&nbsp</p>
                     <p>&nbsp</p>
-
                     <a href="{% url 'register' %}" class="register">Regístrate</a>
                     <p>&nbsp</p>
                     <p>&nbsp</p>
@@ -301,7 +292,6 @@
                     <p>&nbsp</p>
                     <p>&nbsp</p>
                     <p>&nbsp</p>
-
                     <a href="{% url 'home' %}" class="register">Inicio</a>
                 </div>
             </form>
