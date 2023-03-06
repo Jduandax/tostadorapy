@@ -146,6 +146,23 @@
             text-decoration: none;
         }
 
+        .main-menu {
+            background: #3b3931;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            backdrop-filter: contrast(0.6) saturate(0.9) brightness(0.9);
+            {#centralizar#}
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+
+        }
+
+
 
     </style>
 </head>
@@ -158,6 +175,20 @@
     </div>
 </div>
 <!-- preloader area end -->
+<nav class="main-menu">
+    <ul>
+        <li class=""><a href="{% url 'home' %}">Casa</a></li>
+        <li class=""><a href="{% url 'product' %}">Productos</a></li>
+        <li class=""><a href="{% url 'conocenos' %}">Conócenos</a></li>
+        <li class="current-list-item"><a href="{% url 'ayuda' %}">Ayuda</a></li>
+        <li>
+            <div class="header-icons">
+                <a class="shopping-cart" href="{% url 'login' %}"><i
+                        class="fas fa-shopping-cart"></i></a>
+            </div>
+        </li>
+    </ul>
+</nav>
 
 <!-- area de ayuda -->
 <div class="container">
