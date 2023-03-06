@@ -1,10 +1,10 @@
+from django.shortcuts import render, redirect
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .models import User
 from .serializers import UserSerializers
-from django.shortcuts import render, redirect
 
 
 class UserList(APIView):
@@ -12,7 +12,6 @@ class UserList(APIView):
         users = User.objects.all()
         users = UserSerializers(users, many=True).data
         return render(request, 'listar_usuarios.html', {'users': users})
-
 
 
 class UserDelete(APIView):
@@ -29,11 +28,8 @@ class Clientlogeado(APIView):
     def get(self, request):
         try:
             email = request.session['email']
-            print(email)
             user = User.objects.get(email=email)
             user = UserSerializers(user).data
             return Response(user, status=status.HTTP_200_OK)
         except:
             return Response('No Hay clientes logeados', status=status.HTTP_400_BAD_REQUEST)
-
-
