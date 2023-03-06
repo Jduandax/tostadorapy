@@ -29,6 +29,7 @@ class Clientlogeado(APIView):
     def get(self, request):
         try:
             email = request.session['email']
+            print(email)
             user = User.objects.get(email=email)
             user = UserSerializers(user).data
             return Response(user, status=status.HTTP_200_OK)

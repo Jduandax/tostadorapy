@@ -14,7 +14,7 @@
     <title>Catálogo</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="{% static 'assets_index/images/favicon.png' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/cafe.png' %}">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -154,6 +154,10 @@
 
                                     <a class="mobile-hide search-bar-icon" href="{% url 'filter_product' %}"><i
                                             class="fas fa-search"></i></a>
+
+                                    <!-- incono de salir -->
+                                    <a class="mobile-hide logout" href="{% url 'logout' %}"><i
+                                            class="fas fa-sign-out-alt"></i></a>
                                 </div>
                             </li>
                         </ul>

@@ -1,12 +1,12 @@
-from rest_framework import status
+from rest_framework.response import Response
+from django.contrib import messages
+from django.shortcuts import render, redirect
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import User, Rol, Address
-from .serializers import UserSerializers, RolSerializers, AddressSerializers
-from utils import set_rol, send_email, recovery_password, send_email_discounts, get_name_role, send_email_address
-import os, sys, django
-from django.shortcuts import render, redirect
-from django.contrib import messages
+
+from utils import set_rol, send_email, recovery_password, get_name_role, send_email_address
+from .models import User, Address
+from .serializers import UserSerializers, AddressSerializers
 
 
 class Register(APIView):
@@ -65,9 +65,14 @@ class Login(APIView):
 
 
 class Logout(APIView):
-    def post(self, request):
-        del request.session['email']
-        return Response('Logout success')
+    def get(self, request):
+        if 'email' in request.session:
+            del request.session['email']
+            messages.add_message(request, messages.SUCCESS, 'Sesion cerrada correctamente')
+            return redirect('login')
+        else:
+            messages.add_message(request, messages.ERROR, 'No hay ninguna sesion activa')
+            return redirect('login')
 
 
 class EditProfile(APIView):
