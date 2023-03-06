@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+
 from apps.user.views import Clientlogeado
 
 
 class HomeView(TemplateView):
     def get(self, request, **kwargs):
         user = Clientlogeado.get(self, request)
-        print(user)
         if user.status_code == 200:
             return render(request, 'catalogo.html', context=None)
         else:
@@ -15,7 +15,11 @@ class HomeView(TemplateView):
 
 class ProductView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'productos.html', context=None)
+        user = Clientlogeado.get(self, request)
+        if user.status_code == 200:
+            return render(request, 'catalogo.html', context=None)
+        else:
+            return render(request, 'productos.html', context=None)
 
 
 class ConocenosView(TemplateView):
