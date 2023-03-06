@@ -11,7 +11,12 @@ class UserList(APIView):
     def get(self, request):
         users = User.objects.all()
         users = UserSerializers(users, many=True).data
-        return render(request, 'listar_usuarios.html', {'users': users})
+        count = User.objects.count()
+        return render(request, 'listar_usuarios.html',
+                      {
+                          'users': users,
+                          'count': count
+                      })
 
 
 class UserDelete(APIView):

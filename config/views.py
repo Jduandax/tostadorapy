@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 
+from apps.product.models import Product as Pr
+from apps.user.models import User as Us
 from apps.user.views import Clientlogeado
 
 
@@ -31,7 +33,17 @@ class ConocenosView(TemplateView):
 
 class AdminView(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, 'admin.html', context=None)
+        user = Clientlogeado.get(self, request)
+        name = user.data["name"]
+        products = Pr.objects.all()
+        count = Us.objects.count()
+        count_product = Pr.objects.count()
+        return render(request, 'admin.html',
+                      {
+                          'count': count,
+                          'count_product': count_product,
+                          'name': name,
+                      })
 
 
 class AyudaView(TemplateView):
