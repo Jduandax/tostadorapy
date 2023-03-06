@@ -12,41 +12,34 @@
 </head>
 
 <body>
-<div class="loader-bg">
-    <div class="loader-track">
-        <div class="loader-fill"></div>
+<div class="loader">
+    <div class="loader-inner">
+        <div class="circle"></div>
     </div>
 </div>
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn btn-outline-secondary"
-                    onclick="this.parentElement.style.display='none';">X
-            </button>
-        </div>
-    {% endfor %}
-{% endif %}
-
 
 <header xmlns="http://www.w3.org/1999/xhtml" class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
-
-
     <div class="m-header">
         <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
         <a href="#!" class="">
-
             <img src="{% static 'assetsAdmin/images/cafe.png' %}" width="40px" height="40px" alt="" class="logo"/>
-
             <img src="{% static 'assetsAdmin/images/cafe.png' %}" alt="" class="logo-thumb"/>
         </a>
         <a href="#!" class="mob-toggler">
             <i class="feather icon-more-vertical"></i>
         </a>
     </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn btn-outline-secondary"
+                        onclick="this.parentElement.style.display='none';">X
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
 </header>
-<!-- [ Header ] end -->
-
 <nav class="pcoded-navbar  ">
     <div class="navbar-wrapper  ">
         <div class="navbar-content scroll-div ">

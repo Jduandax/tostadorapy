@@ -112,19 +112,25 @@
 <body>
 
 <!--PreLoader-->
-{% if messages %}
-    {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-            {{ message }}
-            <button type="button" class="btn btn-outline-secondary"
-                    onclick="this.parentElement.style.display='none';">X
-            </button>
-        </div>
-    {% endfor %}
-{% endif %}
+<div class="loader">
+    <div class="loader-inner">
+        <div class="circle"></div>
+    </div>
+</div>
+
 
 <!-- header -->
 <div class="top-header-area" id="sticker">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn btn-outline-secondary"
+                        onclick="this.parentElement.style.display='none';">X
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-sm-12 text-center">
@@ -133,8 +139,7 @@
                     <div class="site-logo">
                         <a href="{% url 'home' %}">
                             <img src="{% static 'img/cafe.png' %}" alt=""
-                                 width="100px"
-                            >
+                                 width="100px">
                         </a>
                     </div>
                     <!-- logo -->
@@ -165,38 +170,6 @@
         </div>
     </div>
 </div>
-<!-- end header -->
-<!-- search area -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- end search area -->
-<!-- breadcrumb-section -->
 <div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
         <div class="row">
@@ -210,22 +183,8 @@
     </div>
 </div>
 <!-- end breadcrumb section -->
+<br>
 <!-- products -->
-{% if messages %}
-    <div class="alert alert-success">
-        {% for message in messages %}
-            <p>{{ message }}</p>
-            <script>
-                setTimeout(function () {
-                    $(".alert").alert('close');
-                }, 2500);
-            </script>
-        {% endfor %}
-    </div>
-{% endif %}
-<div class="container">
-</div>
-
 <div class="row product-lists">
     {% for product in products %}
         <div class="col-lg-4 col-md-6 text-center strawberry">
