@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 
 from apps.user.views import Clientlogeado
@@ -17,7 +17,7 @@ class ProductView(TemplateView):
     def get(self, request, **kwargs):
         user = Clientlogeado.get(self, request)
         if user.status_code == 200:
-            return render(request, 'catalogo.html', context=None)
+            return redirect('list_product')
         else:
             return render(request, 'productos.html', context=None)
 
