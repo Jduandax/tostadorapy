@@ -1,6 +1,6 @@
-from django.contrib import admin
 from django.urls import path, include
-from .views import HomeView, ProductView, ConocenosView, AdminView
+
+from .views import HomeView, ProductView, ConocenosView, AdminView, AyudaView
 
 urlpatterns = [
 
@@ -12,5 +12,6 @@ urlpatterns = [
     path('product/', ProductView.as_view(), name='product'),
     path('conocenos/', ConocenosView.as_view(), name='conocenos'),
     path('admin/', AdminView.as_view(), name='admin'),
+    path('ayuda/', AyudaView.as_view(), name='ayuda'),
 
 ]

@@ -42,3 +42,12 @@ PRESENTATION_PRODUCT = [
     }
 
 ]
+
+CATEGORY_PRODUCT = [
+    'Café Molido',
+    'Café en Grano',
+    'Café Tostado',
+    'Café Orgánico',
+    'Café Arábica',
+    'Café Robusta',
+]

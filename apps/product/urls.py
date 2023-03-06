@@ -1,11 +1,14 @@
 from django.urls import path
+
 from .views import (ListProduct,
                     DeleteProduct,
                     EditProduct,
                     AddProduct,
                     RegisterProduct,
                     ProductCartList,
-                    DeleteProductCart)
+                    DeleteProductCart,
+                    FilterProduct,
+                    )
 
 urlpatterns = [
     path('product/', ListProduct.as_view(), name='list_product'),
@@ -15,5 +18,6 @@ urlpatterns = [
     path('register_product/', RegisterProduct.as_view(), name='register_product'),
     path('product_cart/', ProductCartList.as_view(), name='product_cart'),
     path('delete_product_cart/<int:pk>', DeleteProductCart.as_view(), name='delete_product_cart'),
+    path('filter_product/', FilterProduct.as_view(), name='filter_product'),
 
 ]

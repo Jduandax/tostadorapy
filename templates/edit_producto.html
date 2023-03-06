@@ -15,6 +15,176 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/solid.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/svg-with-js.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/v4-shims.css">
+    <style type="text/css">
+        body {
+            margin-top: 0px;
+            background: #ac8b4f;
+            background-image: url("https://www.antojoentucocina.com/wp-content/uploads/2022/04/cafe.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: inherit;
+            background-attachment: fixed;
+            background-blend-mode: multiply;
+            backdrop-filter: contrast(0.1) saturate(0.5) brightness(2);
+        }
+
+        .form-v6-content {
+            width: 100%;
+            max-width: 1000px;
+            background: #e7d8ba;
+            margin: 0 auto;
+            padding: 50px 70px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px -6px #000;
+            background-blend-mode: multiply;
+            backdrop-filter: contrast(0.8) saturate(0.9) brightness(0.9);
+        }
+
+        .form-v6-content h2 {
+            margin: 0 0 30px;
+            padding: 0;
+            color: #333;
+            font-weight: 700;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .form-v6-content form {
+            width: 100%;
+        }
+
+        .form-v6-content form .form-row {
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .form-v6-content form .form-row .form-row-last {
+            margin-right: 0;
+        }
+
+        .form-v6-content form .form-row input {
+            width: 100%;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #333;
+            outline: none;
+        }
+
+        .form-v6-content form .form-row input:focus {
+            border-color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-row input[type="submit"] {
+            background: #ac8b4f;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.4s ease 0s;
+        }
+
+        .form-v6-content form .form-row input[type="submit"]:hover {
+            background: #ac8b4f;
+            opacity: .8;
+        }
+
+        .form-v6-content form .form-row-last {
+            text-align: center;
+        }
+
+        .form-v6-content form .form-row-last .account {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-v6-content form .form-row-last .account a {
+            color: #ac8b4f;
+            text-decoration: none;
+            transition: all 0.4s ease 0s;
+        }
+
+        .form-v6-content form .form-row-last .account a:hover {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox {
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-v6-content form .form-checkbox label {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
+
+        .form-v6-content form .form-checkbox label span {
+            position: relative;
+            top: 2px;
+            margin-left: 5px;
+            color: #333;
+            font-size: 14px;
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .form-v6-content form .form-checkbox label span:hover {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox label span a {
+            color: #ac8b4f;
+            text-decoration: none;
+            transition: all 0.4s ease 0s;
+        }
+
+        .form-v6-content form .form-checkbox label span a:hover {
+            color: #ac8b4f;
+        }
+
+        .form-v6-content form .form-checkbox label span:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+            background: #ac8b4f;
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.2s ease 0s;
+        }
+
+        .botones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-left {
+            width: 30%;
+            height: 100%;
+            background: #dddbd2;
+            border-radius: 10px;
+            padding: 10px 10px;
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease 0s;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -29,24 +199,28 @@
                 <div class="form-group">
                     <label for="presentation">Presentación</label>
                     <select name="presentation" id="presentation" class="form-control">
-                        <option value="1">10 Kg</option>
-                        <option value="2">20 Kg</option>
-                        <option value="3">30 Kg</option>
-                        <option value="4">40 Kg</option>
-                        <option value="5">50 Kg</option>
-                        <option value="6">60 Kg</option>
-                        <option value="7">70 Kg</option>
-                        <option value="8">80 Kg</option>
-                        <option value="9">90 Kg</option>
-                        <option value="10">100 Kg</option>
+                        <option value="10 Kg">10 Kg</option>
+                        <option value="20 Kg">20 Kg</option>
+                        <option value="40 Kg">40 Kg</option>
+                        <option value="50 Kg">50 Kg</option>
+                        <option value="60 Kg">60 Kg</option>
+                        <option value="70 Kg">70 Kg</option>
+                        <option value="80 Kg">80 Kg</option>
+                        <option value="90 Kg">90 Kg</option>
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="name">Nombre Del Producto</label>
-                    <input type="text" name="name" id="name" class="form-control"
-                           value="{{ product.name }}">
-                </div>
+.                <div class="form-group">
+                        <label for="category_name">Categoría</label>
+                        <select class="form-control" id="category_name" name="category_name">
+                            <option value="Café Molido">Café Molido</option>
+                            <option value="Café en Grano">Café en Grano</option>
+                            <option value="Café Tostado">Café Tostado</option>
+                            <option value="Café Orgánico">Café Orgánico</option>
+                            <option value="Café Arábica">Café Arábica</option>
+                            <option value="Café Robusta">Café Robusta</option>
+                        </select>
+                    </div>
 
                 <div class="form-group">
                     <label for="picture">Imagen Del Producto</label>

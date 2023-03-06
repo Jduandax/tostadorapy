@@ -1,37 +1,39 @@
-from django.shortcuts import render, redirect
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from .serializers import ProductSerializer
-from .models import Product
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
+from django.shortcuts import render, redirect
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-from apps.user.views import Clientlogeado
 from apps.cart.models import Cart, Order
-from django.http import HttpResponseRedirect
+from apps.user.views import Clientlogeado
+from .models import Product
+# paginacion restframework
+from .paginations import StandeardResultsSetPagination
+from .serializers import ProductSerializer
 
 
 class ListProduct(APIView):
     def get(self, request):
-        product = Product.objects.all()
-        product = ProductSerializer(product, many=True).data
+        paginator = StandeardResultsSetPagination()
+        products = Product.objects.all().order_by('category')
+        result_page = paginator.paginate_queryset(products, request)
+        products = ProductSerializer(result_page, many=True).data
         user = Clientlogeado.get(self, request)
         user_id = (user.data['id'])
         cart = Cart.objects.filter(user_id=user_id)
         return render(request, 'catalogo.html',
                       {
-                          'products': product,
+                          'products': products,
                           'cart': cart
-
                       })
 
 
 class RegisterProduct(APIView):
     def get(self, request):
-        products = Product.objects.all()
-        products = ProductSerializer(products, many=True).data
+        paginator = StandeardResultsSetPagination()
+        products = Product.objects.all().order_by('category')
+        result_page = paginator.paginate_queryset(products, request)
+        products = ProductSerializer(result_page, many=True).data
         return render(request, 'registrar_producto.html', {'products': products})
 
     def post(self, request):
@@ -40,8 +42,9 @@ class RegisterProduct(APIView):
             product.save()
             return redirect('register_product')
         else:
-            messages.add_message(request, messages.ERROR, 'El Producto ya existe')
-            return redirect('register_product')
+            return Response(
+                product.errors,
+                status=status.HTTP_400_BAD_REQUEST)
 
 
 class DeleteProduct(APIView):
@@ -167,3 +170,18 @@ class DeleteProductCart(APIView):
         else:
             messages.add_message(request, messages.SUCCESS, f'Producto {cart.product.name} eliminado del carrito')
             return redirect('product_cart')
+
+
+class FilterProduct(APIView):
+    def get(self, request):
+        products = Product.objects.all()
+        return render(request, 'search.html', {'products': products, 'search': ''})
+
+    def post(self, request):
+        search = request.POST['search']
+        products = Product.objects.filter(name__icontains=search)
+        return render(request, 'catalogo.html',
+                      {
+                          'products': products,
+                          'search': search
+                      })

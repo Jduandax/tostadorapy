@@ -1,7 +1,6 @@
 from rest_framework import serializers
-from .models import Product
-from django.shortcuts import render, redirect
 
+from .models import Product, Category
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -9,11 +8,11 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
 
-    def validate(self, data):
-        product = Product.objects.filter(name=data['name'])
-        if product:
-            raise serializers.ValidationError('El producto ya existe')
-        return data
+    # def validate(self, data):
+    #     product = Product.objects.filter(name=data['name'])
+    #     if product:
+    #         raise serializers.ValidationError('El producto ya existe')
+    #     return data
 
     def create(self, validated_data):
         presentation = validated_data['presentation']
@@ -39,5 +38,18 @@ class ProductSerializer(serializers.ModelSerializer):
             validated_data['price'] = 100800
         elif presentation == '100 Kg':
             validated_data['price'] = 112000
-
         return Product.objects.create(**validated_data)
+
+    def save(self, *args, **kwargs):
+        category_name = self.validated_data['category_name']
+        category = Category.objects.filter(name=category_name)
+        if category:
+            self.validated_data['category'] = category[0]
+        else:
+            category = Category.objects.create(name=category_name)
+            self.validated_data['category'] = category
+        super(ProductSerializer, self).save(*args, **kwargs)
+
+
+
+

@@ -20,3 +20,8 @@ class ConocenosView(TemplateView):
 class AdminView(TemplateView):
     def get(self, request, **kwargs):
         return render(request, 'admin.html', context=None)
+
+
+class AyudaView(TemplateView):
+    def get(self, request, **kwargs):
+        return render(request, 'ayuda.html', context=None)

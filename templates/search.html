@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Iniciar sesión</title>
+    <title>Busqueda</title>
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <!-- responsive -->
     <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
+
     <style type="text/css">
         body {
             margin-top: 0px;
@@ -31,22 +32,22 @@
             background-image: url("https://www.antojoentucocina.com/wp-content/uploads/2022/04/cafe.png");
             background-repeat: no-repeat;
             background-size: cover;
-            background-position: inherit;
-            background-attachment: fixed;
+            background-position: initial;
+            background-attachment: local;
             background-blend-mode: multiply;
             backdrop-filter: contrast(0.8) saturate(0.9) brightness(0.9);
         }
 
         .form-v6-content {
             width: 100%;
-            max-width: 1000px;
-            background: #e7d8ba;
+            max-width: 1500px;
+            background: #403e39;
             margin: 0 auto;
-            padding: 50px 70px;
+            padding: 80px 200px;
             border-radius: 10px;
             box-shadow: 0 4px 10px -6px #000;
             background-blend-mode: multiply;
-            backdrop-filter: contrast(0.8) saturate(0.9) brightness(0.9);
+            backdrop-filter:  contrast(0.1) saturate(0.5) brightness(2);
         }
 
         .form-v6-content h2 {
@@ -72,7 +73,7 @@
         }
 
         .form-v6-content form .form-row input {
-            width: 100%;
+            width: 1000%;
             border: 1px solid #ddd;
             padding: 15px;
             border-radius: 5px;
@@ -133,9 +134,40 @@
             cursor: pointer;
         }
 
+        .form-v6-content form .form-checkbox label input[type="checkbox"] {
+            display: none;
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"] + span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"] + span:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            background: #ac8b4f;
+            opacity: 0;
+            transition: all 0.2s ease 0s;
+        }
+
+        .form-v6-content form .form-checkbox label input[type="checkbox"]:checked + span:before {
+            opacity: 1;
+        }
 
         .form-v6-content form .form-checkbox label span {
-            position: relative;
+            position: center;
             top: 2px;
             margin-left: 5px;
             color: #333;
@@ -195,86 +227,34 @@
 
         }
     </style>
-    <script
-            type="text/javascript">
-    </script>
 </head>
+
 <body>
-{% if messages %}
-    <div class="alert alert-success">
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    </div>
-{% endif %}
-{% if form.errors %}
-    <div class="alert alert-danger">
-        {% for field in form %}
-            {% for error in field.errors %}
-                <p>{{ error }}</p>
-            {% endfor %}
-        {% endfor %}
-    </div>
-{% endif %}
 
-
-<div class="form-v6">
-    <div class="page-content">
-        <div class="form-v6-content">
-            <div class="form-left">
-                <img src={% static 'assets_register/images/cf0f54eff9544a3fea19d237f34e2963.gif' %} alt="form"
-                     style="width: 1000px; height: 99%">
+<!-- Buscar Por Nombre del Producto -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="form-v6-content">
+{#    django#}
+    <div class="form-left">
+        <h2>Buscar Por Nombre del Producto</h2>
+        <form class="form-detail" action="{% url 'filter_product' %}?name={{ search }}" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <label for="search">Nombre del Producto</label>
+                <input type="text" name="search" id="search" class="input-text" required>
             </div>
-            <form class="form-detail" action="{% url 'login' %}" method="post">
-                {% csrf_token %}
-                <br>
-                <h1>Iniciar sesión</h1>
-                <div class="form-row">
-                    <label for="your_email">Correo electronico</label>
-                    <input type="email" name="email" id="email" class="input-text" placeholder="Correo electronico"
-                           required>
-                </div>
-                <div class="form-row">
-                    <label for="your_password">Contraseña</label>
-                    <input type="password" name="password" id="your_password" class="input-text"
-                           placeholder="Contraseña" required>
-                </div>
-                <div class="form-row-last">
-                    <input type="submit" name="register" class="register" value="Iniciar sesion">
-                </div>
-                <br>
-                <div class="botones">
-                    <a href="{% url 'recovery' %}" class="register">Recuperar contraseña</a>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-                    <p>&nbsp</p>
-
-                    <a href="{% url 'register' %}" class="register">Regístrate</a>
-                </div>
-            </form>
-        </div>
+            <div class="form-row-last">
+                <input type="submit" name="register" class="register" value="Buscar">
+            </div>
+        </form>
     </div>
 </div>
+
+
 </body>
 </html>

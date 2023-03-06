@@ -11,10 +11,10 @@
           content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
     <!-- title -->
-    <title>Catalogo</title>
+    <title>Catálogo</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets_index/images/favicon.png' %}">
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
     <!-- animate css -->
     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
     <!-- mean menu css -->
-    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">
+    {#    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}">#}
     <!-- main style -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <!-- responsive -->
@@ -76,7 +76,36 @@
 
         }
 
+        .paginacion {
+            margin: 20px 0;
+        }
 
+        .paginacion ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .paginacion ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .paginacion ul li a {
+            display: block;
+            padding: 10px 20px;
+            color: #fff;
+            background: #024959;
+            text-decoration: none;
+        }
+
+        .paginacion ul li a:hover {
+            background: #037E8C;
+        }
+
+        .paginacion ul li .active {
+            background: #037E8C;
+            font-weight: bold;
+        }
     </style>
 
 </head>
@@ -104,29 +133,31 @@
                 <div class="main-menu-wrap">
                     <!-- logo -->
                     <div class="site-logo">
-                        <a href="index.html">
-                            <img src="{% static 'img/logo.png' %}" alt="">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'img/cafe.png' %}" alt=""
+                                 width="100px"
+                            >
                         </a>
                     </div>
                     <!-- logo -->
-
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
                             <li class="current-list-item"><a href="{% url 'home' %}">Casa</a></li>
                             <li><a href="{% url 'conocenos' %}">Conócenos</a></li>
+                            <li><a href="{% url 'list_product' %}">Catálogo</a></li>
+                            <li class=""><a href="{% url 'ayuda' %}">Ayuda</a></li>
                             <li>
                                 <div class="header-icons">
                                     <a class="shopping-cart" href="{% url 'product_cart' %}"><i
                                             class="fas fa-shopping-cart"></i></a>
-                                    <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+
+                                    <a class="mobile-hide search-bar-icon" href="{% url 'filter_product' %}"><i
+                                            class="fas fa-search"></i></a>
                                 </div>
                             </li>
                         </ul>
                     </nav>
-                    <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                    <div class="mobile-menu"></div>
-                    <!-- menu end -->
                 </div>
             </div>
         </div>
@@ -134,24 +165,35 @@
 </div>
 <!-- end header -->
 <!-- search area -->
-<div class="search-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                <div class="search-bar">
-                    <div class="search-bar-tablecell">
-                        <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
-                        <button type="submit">Search <i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end search arewa -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end search area -->
 <!-- breadcrumb-section -->
 <div class="breadcrumb-section breadcrumb-bg">
     <div class="container">
@@ -159,7 +201,7 @@
             <div class="col-lg-8 offset-lg-2 text-center">
                 <div class="breadcrumb-text">
                     <p>100% Natural</p>
-                    <h1>Catalogo De Productos</h1>
+                    <h1>Catálogo De Productos</h1>
                 </div>
             </div>
         </div>
@@ -182,18 +224,6 @@
 <div class="container">
 </div>
 
-{#<div class="product-section mt-150 mb-150">#}
-{#    <div class="container">#}
-{##}
-{#        <div class="row">#}
-{#            <div class="col-md-12">#}
-{#                <div class="product-filters">#}
-{#                    <ul>#}
-{#                        <li class="active" data-filter="*">Productos</li>#}
-{#                    </ul>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
 <div class="row product-lists">
     {% for product in products %}
         <div class="col-lg-4 col-md-6 text-center strawberry">
@@ -205,25 +235,41 @@
                     <div class="product-imag">
                         <img src="{{ product.picture }}" alt="Product Image">
                     </div>
-                    <div class="product-price">
-                        <h4><span>COP.  </span>{{ product.price |floatformat:2 }}</h4>
-                    </div>
+                    <br>
                     <div class="product-text">
                         <h6>{{ product.presentation }}</h6>
                     </div>
 
+                    <div class="product-price">
+                        <h3><span>COP.  </span>{{ product.price |floatformat:2 }}</h3>
+                    </div>
                     <div class="product-action">
-                        <br>
                         <a href="{% url 'add_product' product.id %}" class="cart-btn">
                             <i class="fas fa-shopping-cart"></i>
                             Agregar Al Carrito
                         </a>
                     </div>
+                    <br>
                 </div>
             </div>
         </div>
     {% endfor %}
 </div>
+<!--paginacion-->
+<section class="paginacion">
+    <ul>
+        <li><a href="{% url 'list_product' %}" class="active">1</a></li>
+        <li><a href="{% url 'list_product' %}?page=2">2</a></li>
+        <li><a href="{% url 'list_product' %}?page=3">3</a></li>
+        <li><a href="{% url 'list_product' %}?page=4">4</a></li>
+        <li><a href="{% url 'list_product' %}?page=5">5</a></li>
+        <li><a href="{% url 'list_product' %}?page=6">6</a></li>
+        <li><a href="{% url 'list_product' %}?page=7">7</a></li>
+        <li><a href="{% url 'list_product' %}?page=8">8</a></li>
+        <li><a href="{% url 'list_product' %}?page=9">9</a></li>
+        <li><a href="{% url 'list_product' %}?page=10">10</a></li>
+    </ul>
+</section>
 
 <!-- end products -->
 <!-- logo carousel -->
@@ -343,7 +389,6 @@
 <!-- magnific popup -->
 <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
 <!-- mean menu -->
-<script src="{% static 'jquery.meanmenu.min.js' %}"></script>
 <!-- sticker js -->
 <script src="{% static 'js/sticker.js' %}"></script>
 <!-- main js -->
