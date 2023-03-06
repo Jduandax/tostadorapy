@@ -26,10 +26,57 @@
     <link rel="stylesheet" href={% static "css/meanmenu.min.css" %}/>
     <link rel="stylesheet" href={% static "css/main.css" %}/>
     <link rel="stylesheet" href={% static "css/responsive.css" %}/>
+    <style type="text/css">
+        body {
+            margin-top: 0px;
+            background: #ac8b4f;
+            background-image: url("https://www.antojoentucocina.com/wp-content/uploads/2022/04/cafe.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: inherit;
+            background-attachment: fixed;
+            background-blend-mode: multiply;
+            backdrop-filter: contrast(0.2) saturate(0.9) brightness(0.9);
+        }
 
+        .br-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .br-item a {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 500;
+            text-transform: capitalize;
+            margin-right: 10px;
+        }
+
+        .br-item a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .br-item span {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 500;
+            text-transform: capitalize;
+            margin-right: 10px;
+        }
+
+
+    </style>
 </head>
 
 <body>
+<div class="loader">
+    <div class="loader-inner">
+        <div class="circle"></div>
+    </div>
+</div>
 {% if messages %}
     {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
@@ -42,23 +89,20 @@
 {% endif %}
 
 <div class="br">
-<div class="container">
+    <br>
+    <br>
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="br-inner">
                     <div class="br-item">
-                        <a href="{% url 'home' %}">Inicio</a>
-                        <span>/</span>
-                        <a href="{% url 'product_cart' %}">Carrito</a>
-                        <span>/</span>
-                        <a href="{% url 'createaddress' %}">Formulario De Envio</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
+<br>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -86,10 +130,10 @@
                             onclick="alert ('Se han registrados sus datos con Exito, pronto recibira su Pedido')">
                         Guardar
                     </button>
-
                     <!-- boton de cancelar -->
                     <a href="{% url 'product_cart' %}" class="btn btn-warning">Volver Al Carrito</a>
 
+                    <a href="{% url 'list_product' %}" class="btn btn-success">Volver Al Catálogo</a>
                 </div>
             </form>
         </div>
@@ -150,7 +194,6 @@
         </div>
     </div>
 </div>
-
 
 
 <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
