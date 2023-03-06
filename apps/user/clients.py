@@ -1,4 +1,3 @@
-from rest_framework.response import Response
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from rest_framework.response import Response
@@ -56,7 +55,7 @@ class Login(APIView):
                 admin = User.objects.get(email=email)
                 if admin:
                     if password == admin.password:
-                        messages.add_message(request, messages.INFO, f'Bienvenido Administrador  {admin.name}')
+                        messages.add_message(request, messages.SUCCESS, f'Bienvenido Administrador  {admin.name}')
                         return redirect('admin')
                     else:
                         messages.add_message(request, messages.ERROR, 'Contraseña incorrecta')

@@ -18,12 +18,16 @@
     </div>
 </div>
 {% if messages %}
-    <div class="alert alert-success">
-        {% for message in messages %}
-            <p>{{ message }}</p>
-        {% endfor %}
-    </div>
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn btn-outline-secondary"
+                    onclick="this.parentElement.style.display='none';">X
+            </button>
+        </div>
+    {% endfor %}
 {% endif %}
+
 
 <header xmlns="http://www.w3.org/1999/xhtml" class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
 

@@ -230,17 +230,16 @@
 
 </nav>
 {% if messages %}
-    <div class="alert alert-danger">
-        {% for message in messages %}
-            <p>{{ message }}</p>
-            <script>
-                setTimeout(function () {
-                    $(".alert").alert('close');
-                }, 8000);
-            </script>
-        {% endfor %}
-    </div>
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn btn-outline-secondary"
+                    onclick="this.parentElement.style.display='none';">X
+            </button>
+        </div>
+    {% endfor %}
 {% endif %}
+
 
 <!--form-->
 <div class="container">
@@ -280,7 +279,7 @@
                                                 text: 'El Producto ha sido eliminada correctamente',
                                                 type: 'success',
                                                 confirmButtonText: 'Aceptar',
-                                                timer : 20000
+                                                timer : 5000000
                                                 })">
                                 Eliminar
                                 >

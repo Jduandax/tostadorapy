@@ -18,6 +18,17 @@
     <link rel="stylesheet" href={% static "css/responsive.css" %}/>
 </head>
 <body>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn btn-outline-secondary"
+                    onclick="this.parentElement.style.display='none';">X
+            </button>
+        </div>
+    {% endfor %}
+{% endif %}
+
 <div class="loader">
     <div class="loader-inner">
         <div class="circle"></div>
@@ -48,14 +59,6 @@
                                     <li class=""><a href="{% url 'product' %}">Productos</a></li>
                                     <li class=""><a href="{% url 'ayuda' %}">Ayuda</a></li>
                                     <li class="current-list-item"><a href="{% url 'conocenos' %}">Conócenos</a></li>
-{#                                    <li>#}
-{#                                        <div class="header-icons">#}
-{#                                            <a class="shopping-cart" href="catalogo/index.xhtml"><i#}
-{#                                                    class="fas fa-shopping-cart"></i></a>#}
-{#                                            <a class="mobile-hide search-bar-icon" href="#"><i#}
-{#                                                    class="fas fa-search"></i></a>#}
-{#                                        </div>#}
-{#                                    </li>#}
                                 </ul>
                             </nav>
                             <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
