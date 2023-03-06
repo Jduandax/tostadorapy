@@ -8,7 +8,7 @@ class HomeView(TemplateView):
     def get(self, request, **kwargs):
         user = Clientlogeado.get(self, request)
         if user.status_code == 200 and user.data["rol_id"] == 3:
-            return render(request, 'catalogo.html', context=None)
+            return redirect('list_product')
         elif user.status_code == 200 and user.data["rol_id"] == 4:
             return render(request, 'admin.html', context=None)
         else:
