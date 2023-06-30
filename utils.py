@@ -9,9 +9,10 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
-from apps.cart.models import Cart
+from apps.cart.models import Cart, Order
 from apps.product.models import Product
 from django.core.mail import EmailMultiAlternatives
+from datetime import datetime
 
 
 def set_rol(user):
@@ -27,17 +28,14 @@ def send_email(user):
     context = {'user': user}
     html_content = render_to_string(template, context)
 
-    # Texto plano para mostrar si el cliente de correo no soporta HTML
     text_content = f'Bienvenido(a) a nuestra plataforma, {user.name}! Gracias por registrarte.'
 
     msg = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, [user.email])
 
-    # Agrega el contenido HTML al mensaje
     msg.attach_alternative(html_content, "text/html")
 
     # Envía el correo electrónico
     msg.send()
-
 
 
 def recovery_password(user):
@@ -62,8 +60,37 @@ def get_name_role(id):
 
 
 def send_email_address(user, address):
-    subject = 'Direccion de envio'
-    message = f'Hola {user.name} , tu direccion de envio es: {address[0].direccion}'
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = [user.email, os.environ.get('EMAIL_HOST_USER')]
-    send_mail(subject, message, email_from, recipient_list)
+    subject = 'Gracias por tu compra'
+    template = "../templates/envio.html"
+
+    now = datetime.now()
+    latest_order = Order.objects.filter(user_id=user.id).last()
+    total = latest_order.total
+
+    cart_items = Cart.objects.filter(user=user).select_related('product')
+
+
+
+    context = {
+        'user': user,
+        'address': address[0],
+        'fecha': now.strftime("%d/%m/%Y %H:%M:%S"),
+        'total': total,
+        'cart_items': cart_items,
+        'orden': latest_order.id,
+
+    }
+
+    html_content = render_to_string(template, context)
+
+    text_content = f'Hola {user.name}, ' \
+                   f'gracias por tu compra. Pronto estaremos enviando tu pedido a esta dirección: ' \
+                   f'{address[0].direccion}'
+
+    msg = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, [user.email])
+
+    msg.attach_alternative(html_content, "text/html")
+
+    # Envía el correo electrónico
+    msg.send()
+
