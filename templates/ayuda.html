@@ -6,159 +6,28 @@
     <title>Ayuda</title>
     <link rel="shortcut icon" type="image/png" href="../static/img/cafe.png"/>
     <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700ydisplay;swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
     <!-- fontawesome -->
-    <link rel="stylesheet" href="{% static 'css/all.min.css' %}"/>
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-grid.min.css' %}"/>
-    <!-- owl carousel -->
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}"/>
-    <!-- magnific popup -->
-    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}"/>
-    <!-- animate css -->
-    <link rel="stylesheet" href="{% static 'css/animate.css' %}"/>
-    <!-- mean menu css -->
-    <link rel="stylesheet" href="{% static 'css/meanmenu.min.css' %}"/>
-    <!-- main style -->
-    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
-    <!-- responsive -->
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}"/>
-    <style>
-        body {
-            margin-top: 0px;
-            background: #ac8b4f;
-            background-image: url("{% static 'img/hero-bg.jpg' %}");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: inherit;
-            background-attachment: fixed;
-            background-blend-mode: multiply;
-            backdrop-filter: contrast(0.6) saturate(0.9) brightness(0.9);
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    {#    <!-- bootstrap -->#}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    {#    <!-- owl carousel -->#}
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    {#    <!-- magnific popup -->#}
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    {#    <!-- animate css -->#}
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    {##}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {#    <!-- responsive -->#}
+    <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
+    {##}
+    <link rel="stylesheet" href="{% static 'css/catalagofoooter.css' %}"/>
+    {##}
 
-        }
 
-        .container {
-            margin-top: 50px;
-            background: #dcd9cf;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-
-        }
-
-        .container h1 {
-            color: #896730;
-            font-size: 40px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-
-        }
-
-        .container h2 {
-            color: #242323;
-            font-size: 30px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .container p {
-            color: #242323;
-            font-size: 18px;
-            font-weight: 350;
-            margin-bottom: 20px;
-
-        }
-
-        .container p a {
-            color: #242323;
-            font-size: 18px;
-            font-weight: 350;
-            margin-bottom: 20px;
-            text-decoration: none;
-        }
-
-        .container p a:hover {
-            color: #896730;
-            font-size: 18px;
-            font-weight: 350;
-            margin-bottom: 20px;
-            text-decoration: none;
-        }
-
-        .row {
-            margin-bottom: 0px;
-
-        }
-
-        .col-12 {
-            margin-bottom: -2px;
-        }
-
-        .footer-area {
-            background-image: url("{% static 'img/hero-bg.jpg' %}");
-            background: #3c3833;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
-            backdrop-filter: contrast(0.6) saturate(0.9) brightness(0.9);
-        }
-
-        .footer-area p {
-            color: #000000;
-            font-size: 18px;
-            font-weight: 100;
-            margin-bottom: 20px;
-        }
-
-        .footer-area p a {
-            color: #000000;
-            font-size: 18px;
-            font-weight: 100;
-            margin-bottom: 20px;
-            text-decoration: none;
-        }
-
-        .footer-area p a:hover {
-            color: #896730;
-            font-size: 18px;
-            font-weight: 100;
-            margin-bottom: 20px;
-            text-decoration: none;
-        }
-
-        .footer-area p a:hover {
-            color: #896730;
-            font-size: 18px;
-            font-weight: 100;
-            margin-bottom: 20px;
-            text-decoration: none;
-        }
-
-        .footer-area p a:hover {
-            color: #896730;
-            font-size: 18px;
-            font-weight: 100;
-            margin-bottom: 20px;
-            text-decoration: none;
-        }
-
-        .main-menu {
-            background: #3b3931;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
-            backdrop-filter: contrast(0.6) saturate(0.9) brightness(0.9);
-            {#centralizar#}
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
 </head>
 
 <body>
@@ -285,58 +154,76 @@
         </div>
     </div>
 </div>
+
 <!-- area de ayuda -->
 
 <!-- footer area start -->
-<footer>
-    <div class="footer-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                        <h6>Acerca de nosotros</h6>
-                        <p>
-                            Somos una empresa dedicada a la venta de Café 100% natural
-                        </p>
-                    </div>
+<div class="footer-area">
+    <div class="container-footer">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-box about-widget">
+                    <h2 class="widget-title-footer">Nosotros</h2>
+                    <p>Somos una Empresa destinada a la debida transformación, producción y venta del cafe 100%
+                        natural</p>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                        <h6>Enlaces rápidos</h6>
-                        <div class="row">
-                            <div class="col">
-                                <ul>
-                                    <li><a href="{% url 'home' %}">Inicio</a></li>
-                                    <li><a href="{% url 'list_product' %}">Tienda</a></li>
-                                    <li><a href="{% url 'product_cart' %}">Carrito</a></li>
-                                </ul>
-                            </div>
-                            <div class="col">
-                                <ul>
-                                    <li><a href="aboutUs.html">Contacto</a></li>
-                                    <li><a href="ayuda.html">Ayuda</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-box get-in-touch">
+                    <h2 class="widget-title-footer">Contactanos</h2>
+                    <ul>
+                        <li>
+                            <a href="https://www.google.com.co/maps/place/Cra.+102+%2370-76,+Engativ%C3%A1,+Bogot%C3%A1/@4.70284,-74.1218949,17z/data=!3m1!4b1!4m5!3m4!1s0x8e3f9b5421b55267:0x9ed4c9e3aa794e6b!8m2!3d4.70284!4d-74.1197062?hl=es"
+                               target="_blank">Carrera 102#70-76</a>
+                        </li>
+                        <li>developersdrj@gmail.com</li>
+                        <li>+57 3184760156</li>
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-footer-widget">
-                        <h6>Información de contacto</h6>
-                        <p>
-                            Localidad engativa<br>
-                            110011 Bogota<br>
-                            Colombia <br>
-                            <a href="tel:+573184760156">+57 3184760156</a><br>
-                            <a href="mailto:drjdeveloper@gmail.com">
-                            </a>
-                        </p>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-box pages">
+                    <h2 class="widget-title-footer">Información</h2>
+                    <ul>
+                        <li><a href="../index.xhtml">Casa</a></li>
+                        <li><a href="../catalogo/index.xhtml">Tienda</a></li>
+                        <li><a href="../conocenos/index.xhtml">Conocenos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-box subscribe">
+                    <h2 class="widget-title-footer">Slogan</h2>
+                    <p>La verdarera felicidad en una taza de café.</p>
                 </div>
             </div>
         </div>
     </div>
-</footer>
+</div>
+
+<!-- copyright -->
+<div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <p>Copyrights; 2022 - Juan David Cantillo , Nos reservamos los
+                    derechos</p>
+            </div>
+            <div class="col-lg-6 text-right col-md-12">
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end copyright -->
 <!-- jquery latest version -->
 <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
 <script src={% static 'bootstrap/js/bootstrap.min.js' %}></script>

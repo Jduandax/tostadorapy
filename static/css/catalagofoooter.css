@@ -1,0 +1,120 @@
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: inline-block;
+}
+
+.single-product-item {
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #b1afaf;
+    border-radius: 5px;
+    width: 375px;
+    height: 450px;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 0 0 10px rgba(154, 147, 147, 0.5);
+
+}
+
+.select-quantity {
+    padding: 5px 10px;
+    border-left: none;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    color: #f0ecec;
+    font-weight: 600;
+    cursor: pointer;
+    background: #af9062;
+}
+
+.select-quantity:hover {
+    background: #705e51;
+
+}
+
+.paginacion {
+    margin: 20px 0;
+}
+
+.paginacion ul {
+    list-style: none;
+    text-align: center;
+}
+
+.paginacion ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.paginacion ul li a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    background: #024959;
+    text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+    background: #037E8C;
+}
+
+.paginacion ul li .active {
+    background: #037E8C;
+    font-weight: bold;
+}
+
+.footer-area {
+    background-image: url("../img/hero-bg.jpg");
+    background: #272626;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(235, 222, 222, 0.2);
+    margin-top: 20px;
+    backdrop-filter: contrast(0.6) saturate(0.9) brightness(0.9);
+}
+
+.footer-area p {
+    color: #f0eeee;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.footer-area p a {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.footer-area p a:hover {
+    color: #896730;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.footer-area p a:hover {
+    color: #896730;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.footer-area p a:hover {
+    color: #896730;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-decoration: none;
+}

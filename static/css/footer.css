@@ -1,0 +1,139 @@
+body {
+    margin-top: 0px;
+    background: #ac8b4f;
+    background-image: url("../img/hero-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: inherit;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+    backdrop-filter: contrast(0.6) saturate(0.9) brightness(0.9);
+
+}
+
+.container h1 {
+    color: #f2ddab;
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+}
+
+.container h2 {
+    color: #e28d03;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.container p {
+    color: #d1caca;
+    font-size: 18px;
+    font-weight: 350;
+    margin-bottom: 20px;
+
+}
+
+.container p a {
+    color: #eeeaea;
+    font-size: 18px;
+    font-weight: 350;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.container p a:hover {
+    color: #896730;
+    font-size: 18px;
+    font-weight: 350;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.row {
+    margin-bottom: 0px;
+
+}
+
+.col-12 {
+    margin-bottom: -2px;
+}
+
+.footer-area {
+    background-image: url("{% static 'img/hero-bg.jpg' %}");
+    background: #272626;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(235, 222, 222, 0.2);
+    margin-top: 20px;
+    backdrop-filter: contrast(0.6) saturate(0.9) brightness(0.9);
+}
+
+.footer-area p {
+    color: #f0eeee;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.footer-area p a {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.footer-area p a:hover {
+    color: #896730;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.footer-area p a:hover {
+    color: #896730;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.footer-area p a:hover {
+    color: #896730;
+    font-size: 18px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+.main-menu {
+    background: #3b3931;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    backdrop-filter: contrast(0.6) saturate(0.9) brightness(0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-footer H2 {
+    color: #f0eeee;
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.copyright {
+    border-radius: 10px;
+    display: flex;
+    text-align: left;
+    font-size: 13px;
+    height: 65px;
+}
