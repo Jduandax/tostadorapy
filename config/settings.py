@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.product',
     'apps.cart',
+    'dbbackup',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +83,7 @@ DATABASES = {
     'default': {
         'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.sqlite3'),
         'NAME': os.environ.get('DB_NAME', os.path.join(BASE_DIR, 'db.sqlite3')),
-        #postgres
+        # postgres
         # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
         # 'NAME': os.environ.get('DB_NAME'),
         # 'USER': os.environ.get('DB_USER'),
@@ -140,7 +141,6 @@ EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 5
@@ -153,3 +153,9 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+DBBACKUP_DIR = os.path.join(BASE_DIR, 'backups')
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': DBBACKUP_DIR}
+DBBACKUP_CLEANUP_KEEP = 2
+DBBACKUP_FILENAME_TEMPLATE = 'backup-{datetime}.{extension}'

@@ -8,6 +8,7 @@ urlpatterns = [
     path('api/', include('apps.product.urls')),
     path('api/cart/', include('apps.cart.urls')),
 
+
     path('', HomeView.as_view(), name='home'),
     path('product/', ProductView.as_view(), name='product'),
     path('conocenos/', ConocenosView.as_view(), name='conocenos'),
