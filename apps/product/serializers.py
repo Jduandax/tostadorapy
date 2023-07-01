@@ -4,9 +4,13 @@ from .models import Product, Category
 
 
 class ProductSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Product
         fields = '__all__'
+
+    def get_price(self, obj):
+        return '{:,.2f}'.format(obj.price).replace(',', '.')
 
     # def validate(self, data):
     #     product = Product.objects.filter(name=data['name'])
