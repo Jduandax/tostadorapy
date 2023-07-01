@@ -224,7 +224,7 @@
 {% endif %}
 <!--navbar-->
 <nav class="navbar navbar-dark bg-primary">
-    <a href="#" class="navbar-brand">Productos - Tostadora De Cafe San Jorge</a>
+    <a href="#" class="navbar-brand">Productos - Tostadora De Café San Jorge</a>
     <ul class="navbar-nav">
     </ul>
 
@@ -275,8 +275,8 @@
                                     class="fas fa-trash-alt"
                                     onclick=
                                             "Swal.fire({
-                                                title: 'Eliminada correctamente',
-                                                text: 'El Producto ha sido eliminada correctamente',
+                                                title: 'Eliminado correctamente',
+                                                text: 'El Producto ha sido eliminado correctamente',
                                                 type: 'success',
                                                 confirmButtonText: 'Aceptar',
                                                 timer : 5000000
@@ -348,7 +348,7 @@
                 <form action="{% url 'register_product' %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
-                        <label for="presentation">Presentacion</label>
+                        <label for="presentation">Presentación</label>
                         <select class="form-control" id="presentation" name="presentation">
                             <option value="10 Kg">10 kg</option>
                             <option value="20 Kg">20 kg</option>

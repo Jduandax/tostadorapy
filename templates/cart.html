@@ -97,7 +97,7 @@
                                         <tr>
                                             <td>{{ c.product.name }}</td>
                                             <td><img src="{{ c.product.picture }}" width="80" height="80"></td>
-                                            <td>{{ c.product.price }}</td>
+                                            <td>COP. {{ c.product.price }}</td>
                                             <td>{{ c.quantity }}</td>
                                             <td>COP. {{ c.sub_total }}</td>
                                             <td><a href="{% url 'delete_product_cart' c.id %}"
