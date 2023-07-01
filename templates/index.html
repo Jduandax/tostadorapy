@@ -31,6 +31,29 @@
     <!-- responsive -->
     <link rel="stylesheet" href="../static/css/responsive.css"/>
 
+    <style type="text/css">
+
+        a[title] {
+            position: relative;
+        }
+
+        a[title]:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            padding: 5px 15px;
+            transform: translateX(-50%);
+            background-color: #473e2a; /* Fondo amarillo */
+            color: white; /* Texto en color blanco */
+            border-radius: 5px; /* Borde redondeado */
+            white-space: nowrap;
+            z-index: 1;
+            font-size: 14px;
+            margin-bottom: -100px;
+
+        }
+    </style>
+
 
 </head>
 <body>
@@ -66,14 +89,20 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="{% url 'home' %}">Casa</a></li>
-                            <li class=""><a href="{% url 'product' %}">Productos</a></li>
-                            <li class=""><a href="{% url 'conocenos' %}">Conócenos</a></li>
-                            <li class=""><a href="{% url 'ayuda' %}">Ayuda</a></li>
+                            <li class="current-list-item"><a href="{% url 'home' %}" title="Ir a la página de inicio">Casa</a>
+                            </li>
+                            <li class=""><a href="{% url 'product' %}" title="Ver productos">Productos</a></li>
+                            <li class=""><a href="{% url 'conocenos' %}"
+                                            title="Conocer más sobre nosotros">Conócenos</a></li>
+                            <li class=""><a href="{% url 'ayuda' %}" title="Obtener ayuda">Ayuda</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="{% url 'login' %}"><i
-                                            class="fas fa-shopping-cart"></i></a>
+                                    <a class="shopping-cart" href="{% url 'login' %}" title="
+                                    Carrito de Compras. Si no estás logueado, te enviará a la página de inicio de sesión.">
+                                        <i
+                                            class="fas fa-shopping-cart" >
+
+                                    </i></a>
                                 </div>
                             </li>
                         </ul>
@@ -96,8 +125,8 @@
                         <p class="subtitle">Tostadora San Jorge</p>
                         <h1>Café 100% Natural</h1>
                         <div class="hero-btns">
-                            <a href={% url 'login' %} class="boxed-btn">Iniciar Sesión</a>
-                            <a href="{% url 'register' %}" class="bordered-btn">Registrarse</a>
+                            <a href="{% url 'login' %}" class="boxed-btn" title="Inicio De Sesión ">Iniciar Sesión</a>
+                            <a href="{% url 'register' %}" class="bordered-btn" title="Registro de Usuarios">Registrarse</a>
                         </div>
                     </div>
                 </div>

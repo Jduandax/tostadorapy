@@ -1,16 +1,13 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Adminastrador</title>
-    <script src="{% static 'assetsAdmin/js/vendor-all.min.js' %}"></script>
-    <script src="{% static 'assetsAdmin/js/plugins/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assetsAdmin/js/pcoded.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'assetsAdmin/css/style.css' %}">
     <link rel="icon" href="{% static 'img/cafe.png' %}" type="image/x-icon"/>
 </head>
-
 <body>
 <div class="loader">
     <div class="loader-inner">
@@ -40,49 +37,59 @@
         {% endfor %}
     {% endif %}
 </header>
-<nav class="pcoded-navbar  ">
-    <div class="navbar-wrapper  ">
-        <div class="navbar-content scroll-div ">
-            <div class="">
-                <div class="main-menu-header">
-                    <img class="img-radius" src="{% static 'assetsAdmin/images/user/avatar-2.jpg' %}"
-                         alt="User-Profile-Image"/>
-                    <div class="user-details">
-                        <span>{{ name }}</span>
-                        <div id="more-details">Administrador</div>
-                    </div>
+
+<nav class="pcoded-navbar">
+    <div class="navbar-wrapper">
+        <div class="navbar-content scroll-div">
+            <div class="main-menu-header">
+                <img class="img-radius" src="{% static 'assetsAdmin/images/user/avatar-2.jpg' %}"
+                     alt="User-Profile-Image"/>
+                <div class="user-details">
+                    <span>{{ name }}</span>
+                    <div id="more-details">Administrador</div>
                 </div>
             </div>
-            <ul class="nav pcoded-inner-navbar ">
+            <ul class="nav pcoded-inner-navbar">
                 <li class="nav-item pcoded-menu-caption">
                     <label>Navegación</label>
                 </li>
                 <li class="nav-item">
-                    <a href="../administrador/index.xhtml" class="nav-link "><span
-                            class="pcoded-micon"><i
-                            class="feather icon-list"></i></span><span
-                            class="">Inicio</span>
+                    <a href="../admin" class="nav-link">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-list"></i>
+                        </span>
+                        <span class="">Inicio</span>
                     </a>
-                    <a href="{% url 'register_product' %}" class="nav-link "><span
-                            class="pcoded-micon"><i
-                            class="feather icon-list"></i></span><span
-                            class="">Registrar y Listar  Producto</span>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'register_product' %}" class="nav-link">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-list"></i>
+                        </span>
+                        <span class="">Registrar y Listar Producto</span>
                     </a>
-                    <a href="{% url 'user_list' %}" class="nav-link "><span
-                            class="pcoded-micon"><i
-                            class="feather icon-list"></i></span><span
-                            class="pcoded-mtext">Listar y Eliminar Usuarios</span></a>
-
-                    <a href="{% url 'logout' %}" class="nav-link "><span
-                            class="pcoded-micon"><i
-                            class="feather icon-list"></i></span><span
-                            class="pcoded-mtext">Salir</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'user_list' %}" class="nav-link">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-list"></i>
+                        </span>
+                        <span class="pcoded-mtext">Listar y Eliminar Usuarios</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-list"></i>
+                        </span>
+                        <span class="pcoded-mtext">Salir</span>
+                    </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<!-- Django -->
+
 <div class="pcoded-main-container">
     <div class="pcoded-wrapper">
         <div class="pcoded-content">

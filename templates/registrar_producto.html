@@ -10,9 +10,31 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/png" href="../static/img/cafe.png"/>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <!-- animate css -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <!-- main css -->
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <!-- responsive -->
+    <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'assetsAdmin/css/style.css' %}">
+    <link rel="icon" href="{% static 'img/cafe.png' %}" type="image/x-icon"/>
+    <!-- catalogo footer -->
+    <link rel="stylesheet" href="{% static 'css/catalogofooter.css' %}"/>
     <style type="text/css">
         body {
-            margin-top: 0px;
+            margin-top: -3px;
             background: #ac8b4f;
             background-image: url("https://www.antojoentucocina.com/wp-content/uploads/2022/04/cafe.png");
             background-repeat: no-repeat;
@@ -21,6 +43,40 @@
             background-attachment: fixed;
             background-blend-mode: multiply;
             backdrop-filter: contrast(0.1) saturate(0.5) brightness(2);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .modal {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            position: fixed;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        .navbar .navbar-brand {
+            color: #fff;
+            font-size: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            margin-top: -10px;
+            margin-left: 300px;
+            margin-bottom: 215px;
+            width: 100%;
+
         }
 
         .form-v6-content {
@@ -214,6 +270,28 @@
     </style>
 </head>
 <body>
+<header xmlns="http://www.w3.org/1999/xhtml" class="navbar pcoded-header navbar-expand-lg navbar-light header-dark">
+    <div class="m-header">
+        <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+        <a href="#!" class="">
+            <img src="{% static 'assetsAdmin/images/cafe.png' %}" width="40px" height="40px" alt="" class="logo"/>
+            <img src="{% static 'assetsAdmin/images/cafe.png' %}" alt="" class="logo-thumb"/>
+        </a>
+        <a href="#!" class="mob-toggler">
+            <i class="feather icon-more-vertical"></i>
+        </a>
+    </div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn btn-outline-secondary"
+                        onclick="this.parentElement.style.display='none';">X
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+</header>
 {% if messages %}
     {% for message in messages %}
         <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
@@ -223,11 +301,56 @@
     {% endfor %}
 {% endif %}
 <!--navbar-->
-<nav class="navbar navbar-dark bg-primary">
-    <a href="#" class="navbar-brand">Productos - Tostadora De Café San Jorge</a>
-    <ul class="navbar-nav">
-    </ul>
-
+<nav class="pcoded-navbar">
+    <div class="navbar-wrapper">
+        <div class="navbar-content scroll-div">
+            <div class="main-menu-header">
+                <img class="img-radius" src="{% static 'assetsAdmin/images/user/avatar-2.jpg' %}"
+                     alt="User-Profile-Image"/>
+                <div class="user-details">
+                    <span>{{ name }}</span>
+                    <div id="more-details">Administrador</div>
+                </div>
+            </div>
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Navegación</label>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'admin' %}" class="nav-link">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-list"></i>
+                        </span>
+                        <span class="">Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'register_product' %}" class="nav-link">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-list"></i>
+                        </span>
+                        <span class="">Registrar y Listar Producto</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'user_list' %}" class="nav-link">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-list"></i>
+                        </span>
+                        <span class="pcoded-mtext">Listar y Eliminar Usuarios</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'logout' %}" class="nav-link">
+                        <span class="pcoded-micon">
+                            <i class="feather icon-list"></i>
+                        </span>
+                        <span class="pcoded-mtext">Salir</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 {% if messages %}
     {% for message in messages %}
@@ -239,6 +362,11 @@
         </div>
     {% endfor %}
 {% endif %}
+
+<br>
+<br>
+<br>
+<br>
 
 
 <!--form-->
@@ -307,17 +435,18 @@
                 <ul>
 
                     <li><a href="{% url 'register_product' %}" class="active">1</a></li>
-                    <li><a href="{% url 'register_product'  %}?page=2">2</a></li>
-                    <li><a href="{% url 'register_product'  %}?page=3">3</a></li>
-                    <li><a href="{% url 'register_product'  %}?page=4">4</a></li>
-                    <li><a href="{% url 'register_product'  %}?page=5">5</a></li>
-                    <li><a href="{% url 'register_product'  %}?page=6">6</a></li>
-                    <li><a href="{% url 'register_product'  %}?page=7">7</a></li>
-                    <li><a href="{% url 'register_product'  %}?page=8">8</a></li>
-                    <li><a href="{% url 'register_product'  %}?page=9">9</a></li>
-                     <li><a href="{% url 'register_product'  %}?page=10">10</a></li>
+                    <li><a href="{% url 'register_product' %}?page=2">2</a></li>
+                    <li><a href="{% url 'register_product' %}?page=3">3</a></li>
+                    <li><a href="{% url 'register_product' %}?page=4">4</a></li>
+                    <li><a href="{% url 'register_product' %}?page=5">5</a></li>
+                    <li><a href="{% url 'register_product' %}?page=6">6</a></li>
+                    <li><a href="{% url 'register_product' %}?page=7">7</a></li>
+                    <li><a href="{% url 'register_product' %}?page=8">8</a></li>
+                    <li><a href="{% url 'register_product' %}?page=9">9</a></li>
+                    <li><a href="{% url 'register_product' %}?page=10">10</a></li>
 
-                </ul>"
+                </ul>
+                "
             </section>
 
 
@@ -407,6 +536,30 @@
         </div>
     </div>
 </div>
+
+
+<!-- copyright -->
+<div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <p>Derechos de autor; 2022 - Juan David Cantillo. Todos los derechos reservados.</p>
+            </div>
+            <div class="col-lg-6 text-right col-md-12">
+                <div class="social-icons">
+                    <ul>
+                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end copyright -->
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -423,7 +576,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-</body>
+<script>
+    $(document).ready(function () {
+        $('#table_id').DataTable();
+    });
+</script>
 </html>
 
 

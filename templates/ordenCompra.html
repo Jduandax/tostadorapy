@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Orden de Compra</title>
+{#    <link rel="shortcut icon" type="image/png" href="../static/img/cafe.png"/>#}
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    {#    <!-- bootstrap -->#}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    {#    <!-- owl carousel -->#}
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    {#    <!-- magnific popup -->#}
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    {#    <!-- animate css -->#}
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    {##}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    {#    <!-- responsive -->#}
+    <link rel="stylesheet" href="{% static '/css/responsive.css' %}">
+    {##}
+    <link rel="stylesheet" href="{% static 'css/catalagofoooter.css' %}"/>
+    {##}
+
+
+{#    <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>#}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #e2c860;
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        h2 {
+            color: #555555;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        .icon-link {
+            display: flow;
+            margin-right: 10px;
+            color: #333333;
+            text-decoration: none;
+            padding: 60px;
+            margin-left: -20px;
+
+        }
+
+        .icon-link img {
+            height: 50px;
+            width: 50px;
+        }
+
+        .button-container {
+            text-align: right;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="button-container">
+    <a href="#" class="icon-link"><img src="{% static 'img/file-pdf-solid-24.png' %}" alt="Descargar PDF"></a>
+    <a href="#" class="icon-link"><img src="{% static 'img/printer-regular-24.png' %}" alt="Imprimir"></a>
+</div>
+
+<h1>Orden de Compra</h1>
+
+<h2>Detalles de la Orden:</h2>
+<p><strong>Total:</strong> {{ total }}</p>
+<p><strong>Cantidad de Productos:</strong> {{ total_quantity }}</p>
+
+<h2>Productos:</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio Unitario</th>
+        <th>Subtotal</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in order %}
+        <tr>
+            <td>{{ item.cart_id.product.name}}</td>
+            <td>{{ item.total_quantity }}</td>
+            <td>{{ item.cart.product.price }}</td>
+            <td>{{ item.total }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

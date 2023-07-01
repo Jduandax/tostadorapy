@@ -2,8 +2,8 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializer import CartSerializer
-from .models import Cart
+from .serializer import CartSerializer, OrderSerializer
+from .models import Cart, Order
 from apps.product.views import ListProduct
 from apps.user.views import Clientlogeado
 
@@ -45,3 +45,13 @@ class CreateCart(APIView):
             cart.save()
             return Response(cart.data, status=status.HTTP_200_OK)
         return Response(cart.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class OrderDetail(APIView):
+
+    def get(self, request):
+        user = Clientlogeado.get(self, request)
+        user_id = (user.data['id'])
+        order = Order.objects.filter(user_id=user_id)
+        order = OrderSerializer(order, many=True).data
+        return render(request, 'ordenCompra.html', {'order': order})
