@@ -40,10 +40,19 @@ def send_email(user):
 
 def recovery_password(user):
     subject = 'Recuperacion de contraseña'
+    template = "../templates/recuperacionContraseña.html"
+    context = {
+        'user': user
+    }
+    text_content = render_to_string(template, context)
+
     message = f'Hola {user.name} , tu contraseña es: {user.password}'
-    email_from = settings.EMAIL_HOST_USER
-    recipient_list = [user.email, ]
-    send_mail(subject, message, email_from, recipient_list)
+    msg = EmailMultiAlternatives(subject, text_content, settings.EMAIL_HOST_USER, [user.email])
+
+    msg.attach_alternative(text_content, "text/html")
+
+    # Envía el correo electrónico
+    msg.send()
 
 
 def send_email_discounts(user):
@@ -69,8 +78,6 @@ def send_email_address(user, address):
 
     cart_items = Cart.objects.filter(user=user).select_related('product')
 
-
-
     context = {
         'user': user,
         'address': address[0],
@@ -93,4 +100,3 @@ def send_email_address(user, address):
 
     # Envía el correo electrónico
     msg.send()
-
