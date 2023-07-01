@@ -55,12 +55,16 @@
                             <!-- menu start -->
                             <nav class="main-menu">
                                 <ul>
-                                    <li class=""><a href="{% url 'home' %}">Casa</a></li>
-                                    <li class=""><a href="{% url 'product' %}">Productos</a></li>
-                                    <li class=""><a href="{% url 'ayuda' %}">Ayuda</a></li>
-                                    <li class="current-list-item"><a href="{% url 'conocenos' %}">Conócenos</a></li>
+                                    <li class=""><a href="{% url 'home' %}" title="Ir a la página de inicio">Casa</a>
+                                    </li>
+                                    <li class=""><a href="{% url 'product' %}" title="Ver productos">Productos</a></li>
+                                    <li class=""><a href="{% url 'ayuda' %}" title="Obtener ayuda">Ayuda</a></li>
+                                    <li class="current-list-item"><a href="{% url 'conocenos' %}"
+                                                                     title="Conocer más sobre nosotros">Conócenos</a>
+                                    </li>
                                 </ul>
                             </nav>
+
                             <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                             <div class="mobile-menu"></div>
                             <!-- menu end -->
@@ -83,13 +87,12 @@
                                                     <h1>CONÓCENOS</h1>
                                                     <br>
                                                 </div>
-                                                    <div class="hero-btns">
-                                                        <button type="button" class="btn btn-primary btn-lg"
-                                                                data-toggle="modal" data-target="#exampleModal"
-                                                        >Leer más
-                                                        </button>
-                                                        <br>
-                                                    </div>
+                                                <div class="hero-btns">
+                                                    <button type="button" class="btn btn-primary btn-lg"
+                                                            data-toggle="modal" data-target="#exampleModal"
+                                                    >Leer más
+                                                    </button>
+                                                    <br>
                                                 </div>
                                             </div>
                                         </div>
@@ -100,6 +103,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         <br>
         <!-- end hero area -->
         <!-- modal, para leer mas sobre la tienda-->
@@ -259,7 +263,7 @@
                                        target="_blank">Carrera 102#70-76</a>
                                 </li>
                                 <li>Tostadorasanjorge@gmail.com</li>
-                                <li>+57 3215678914 / wa.link/p0m45s </li>
+                                <li>+57 3215678914 / wa.link/p0m45s</li>
                             </ul>
                         </div>
                     </div>
