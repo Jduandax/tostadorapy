@@ -36,6 +36,28 @@
     <link rel="stylesheet" href="{% static 'css/catalagofoooter.css' %}"/>
 
 
+    <style type="text/css">
+
+        a[data-tooltip]:hover::before {
+            content: attr(data-tooltip);
+            border-radius: 10px;
+            position: absolute;
+            padding: 5px 10px;
+            background-color: #e28d03;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 4px;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-btns a[data-tooltip]:hover::before {
+            top: 800px;
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -74,13 +96,13 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class=""><a href="{% url 'home' %}">Casa</a></li>
-                            <li><a href="{% url 'conocenos' %}">Conócenos</a></li>
-                            <li class="current-list-item"><a href="{% url 'list_product' %}">Catálogo</a></li>
-                            <li class=""><a href="{% url 'ayuda' %}">Ayuda</a></li>
+                            <li class=""><a href="{% url 'home' %}" data-tooltip="Inicio de la pagina">Casa</a></li>
+                            <li><a href="{% url 'conocenos' %}" data-tooltip="Inforrmacion acerca de nosotros">Conócenos</a></li>
+                            <li class="current-list-item"><a href="{% url 'list_product' %}" data-tooltip="Productos">Catálogo</a></li>
+                            <li class=""><a href="{% url 'ayuda' %}" data-tooltip="Aqui estamos para ayudar">Ayuda</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="{% url 'product_cart' %}"><i
+                                    <a class="shopping-cart" href="{% url 'product_cart' %}" data-tooltip="Carrito de compra"><i
                                             class="fas fa-shopping-cart"></i></a>
 
                                     <a class="mobile-hide search-bar-icon" href="{% url 'filter_product' %}"><i
@@ -133,7 +155,7 @@
                         <h3><span>COP.  </span>{{ product.price |intcomma }}</h3>
                     </div>
                     <div class="product-action">
-                        <a href="{% url 'add_product' product.id %}" class="cart-btn">
+                        <a href="{% url 'add_product' product.id %}" class="cart-btn" data-tooltip="Agregar para comprar">
                             <i class="fas fa-shopping-cart"></i>
                             Agregar al Carrito
                         </a>

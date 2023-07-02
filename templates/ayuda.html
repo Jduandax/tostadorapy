@@ -26,6 +26,31 @@
     <link rel="stylesheet" href="{% static 'css/catalogofooter.css' %}"/>
 
     <link rel="stylesheet" href="{% static 'css/footer.css' %}"/>
+
+
+    <style type="text/css">
+
+        a[data-tooltip]:hover::before {
+            content: attr(data-tooltip);
+            border-radius: 10px;
+            position: absolute;
+            padding: 5px 10px;
+            background-color: #e28d03;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 4px;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hero-btns a[data-tooltip]:hover::before {
+            top: 800px;
+        }
+
+    </style>
+
+
 </head>
 
 <body>
@@ -49,10 +74,10 @@
 <!-- preloader area end -->
 <nav class="main-menu">
     <ul>
-        <li class=""><a href="{% url 'home' %}">Casa</a></li>
-        <li class=""><a href="{% url 'product' %}">Productos</a></li>
-        <li class=""><a href="{% url 'conocenos' %}">Conócenos</a></li>
-        <li class="current-list-item"><a href="{% url 'ayuda' %}">Ayuda</a></li>
+        <li class=""><a href="{% url 'home' %}" data-tooltip="Pagina de Inicio">Casa</a></li>
+        <li class=""><a href="{% url 'product' %}" data-tooltip="Catalogo de productos">Productos</a></li>
+        <li class=""><a href="{% url 'conocenos' %}" data-tooltip="Acerca de Nosotros">Conócenos</a></li>
+        <li class="current-list-item"><a href="{% url 'ayuda' %}" data-tooltip="Acerca de Nosotros">Ayuda</a></li>
     </ul>
 </nav>
 <!-- area de ayuda -->

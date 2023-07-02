@@ -266,6 +266,22 @@
             background: #037E8C;
             font-weight: bold;
         }
+        a[data-tooltip]:hover::before {
+            content: attr(data-tooltip);
+            border-radius: 10px;
+            position: absolute;
+            padding: 5px 10px;
+            background-color: #e28d03;
+            color: #fff;
+            font-size: 14px;
+            top: 60px;
+            right: 5%;
+            transform: translateX(-50%);
+        }
+
+        .hero-btns a[data-tooltip]:hover::before {
+            top: 800px;
+        }
 
     </style>
 </head>
@@ -396,10 +412,10 @@
                         <td>{{ producto.stock }}</td>
                         <td> $ {{ producto.price }}</td>
                         <td>
-                            <a href="{% url 'edit_product' producto.id %}" class="btn btn-warning"><i
+                            <a href="{% url 'edit_product' producto.id %}" data-tooltip="Editar Producto" class="btn btn-warning"><i
                                     class="fas fa-edit"></i></a>
 
-                            <a href="{% url 'delete_product' producto.id %}" class="btn btn-danger"><i
+                            <a href="{% url 'delete_product' producto.id %}" data-tooltip="Eliminar Producto" class="btn btn-danger"><i
                                     class="fas fa-trash-alt"
                                     onclick=
                                             "Swal.fire({
@@ -421,13 +437,13 @@
             <br>
             <br>
             <br>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"  >
                 Registrar Producto
             </button>
             <div class="btn-group" role="group" aria-label="Basic example" style="float: right">
 
                 &nbsp;
-                <a href="{% url 'admin' %}" class="btn btn-outline-success">Administrador</a>
+                <a href="{% url 'admin' %}" data-tooltip="Volver al Inicio" class="btn btn-outline-success">Administrador</a>
             </div>
 
             <!--paginacion-->

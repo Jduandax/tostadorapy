@@ -33,25 +33,24 @@
 
     <style type="text/css">
 
-        a[title] {
-            position: relative;
-        }
-
-        a[title]:hover::after {
-            content: attr(title);
+        a[data-tooltip]:hover::before {
+            content: attr(data-tooltip);
+            border-radius: 10px;
             position: absolute;
-            bottom: 100%;
-            padding: 5px 15px;
-            transform: translateX(-50%);
-            background-color: #473e2a; /* Fondo amarillo */
-            color: white; /* Texto en color blanco */
-            border-radius: 5px; /* Borde redondeado */
-            white-space: nowrap;
-            z-index: 1;
+            padding: 5px 10px;
+            background-color: #e28d03;
+            color: #fff;
             font-size: 14px;
-            margin-bottom: -100px;
-
+            border-radius: 4px;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
         }
+
+        .hero-btns a[data-tooltip]:hover::before {
+            top: 800px;
+        }
+
     </style>
 
 
@@ -89,23 +88,20 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="{% url 'home' %}" title="Ir a la página de inicio">Casa</a>
-                            </li>
-                            <li class=""><a href="{% url 'product' %}" title="Ver productos">Productos</a></li>
-                            <li class=""><a href="{% url 'conocenos' %}"
-                                            title="Conocer más sobre nosotros">Conócenos</a></li>
-                            <li class=""><a href="{% url 'ayuda' %}" title="Obtener ayuda">Ayuda</a></li>
+                            <li class="current-list-item"><a href="{% url 'home' %}" data-tooltip="Inicio">Casa</a></li>
+                            <li class=""><a href="{% url 'product' %}" data-tooltip="Productos">Productos</a></li>
+                            <li class=""><a href="{% url 'conocenos' %}" data-tooltip="Conócenos">Conócenos</a></li>
+                            <li class=""><a href="{% url 'ayuda' %}" data-tooltip="Ayuda">Ayuda</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="{% url 'login' %}" title="
-                                    Carrito de Compras. Si no estás logueado, te enviará a la página de inicio de sesión.">
-                                        <i
-                                            class="fas fa-shopping-cart" >
-
-                                    </i></a>
+                                    <a class="shopping-cart" href="{% url 'login' %}" data-tooltip="Carrito de compras">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
                                 </div>
                             </li>
                         </ul>
+
+
                     </nav>
                 </div>
             </div>
@@ -125,8 +121,8 @@
                         <p class="subtitle">Tostadora San Jorge</p>
                         <h1>Café 100% Natural</h1>
                         <div class="hero-btns">
-                            <a href="{% url 'login' %}" class="boxed-btn" title="Inicio De Sesión ">Iniciar Sesión</a>
-                            <a href="{% url 'register' %}" class="bordered-btn" title="Registro de Usuarios">Registrarse</a>
+                            <a href="{% url 'login' %}" data-tooltip="Inicio de Sesión" class="boxed-btn">Iniciar Sesión</a>
+                            <a href="{% url 'register' %}" data-tooltip="Registro" class="bordered-btn">Registrarse</a>
                         </div>
                     </div>
                 </div>
